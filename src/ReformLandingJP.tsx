@@ -613,17 +613,34 @@ export default function ReformLandingJP() {
             </p>
           </div>
           <div className="bg-white border rounded-2xl shadow-sm p-3 sm:p-6">
-            <iframe
-              title="お問い合わせフォーム"
-              src="https://docs.google.com/forms/d/e/1FAIpQLSfQETOV-WxN_gYJNU9eWC2y9XTfHU8J-36_RfMmRrSlIn3FSA/viewform?embedded=true"
-              className="w-full min-h-[2056px] rounded-xl"
-              frameBorder="0"
-              marginHeight={0}
-              marginWidth={0}
-              loading="lazy"
-            >
-              読み込んでいます…
-            </iframe>
+            <div className="relative">
+              <iframe
+                title="お問い合わせフォーム"
+                src="https://docs.google.com/forms/d/e/1FAIpQLSfQETOV-WxN_gYJNU9eWC2y9XTfHU8J-36_RfMmRrSlIn3FSA/viewform?embedded=true"
+                width="640"
+                height={2056}
+                className="w-full rounded-xl border-0"
+                frameBorder="0"
+                marginHeight={0}
+                marginWidth={0}
+                loading="lazy"
+                style={{ minHeight: "2056px" }}
+              >
+                読み込んでいます…
+              </iframe>
+              <p className="sr-only">
+                フォームが表示されない場合は
+                <a
+                  className="text-indigo-600 underline ml-1"
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSfQETOV-WxN_gYJNU9eWC2y9XTfHU8J-36_RfMmRrSlIn3FSA/viewform"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  こちら
+                </a>
+                からアクセスしてください。
+              </p>
+            </div>
           </div>
         </div>
       </section>
