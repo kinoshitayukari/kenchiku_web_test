@@ -1,44 +1,118 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useMemo, useState } from "react";
 
 type ContactForm = {
+  kansaiResidence: "はい" | "いいえ" | "関西に引っ越し予定" | "";
   name: string;
   email: string;
-  phone: string;
-  area: string;
-  message: string;
-  agree: boolean;
+  desiredAreas: string[];
+  purpose: string;
+  budget: "〜50万円" | "50〜100万円" | "100〜300万円" | "300万円以上" | "";
+  timeline: "すぐにでも" | "3か月以内" | "半年以内" | "1年以内" | "";
+  questions: string;
 };
 
 const defaultForm: ContactForm = {
+  kansaiResidence: "",
   name: "",
   email: "",
-  phone: "",
-  area: "",
-  message: "",
-  agree: false,
+  desiredAreas: [],
+  purpose: "",
+  budget: "",
+  timeline: "",
+  questions: "",
 };
 
 export default function ReformLandingJP() {
   const [form, setForm] = useState<ContactForm>(defaultForm);
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const desiredAreaOptions = useMemo(
+    () => ["キッチン", "浴室", "トイレ", "外壁", "屋根", "内装", "その他"],
+    []
+  );
 
   const onChange = (
     event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const target = event.target;
-
-    if (target instanceof HTMLInputElement && target.type === "checkbox") {
-      const { name, checked } = target;
-      setForm((previous) => ({ ...previous, [name]: checked }));
-    } else {
-      const { name, value } = target;
-      setForm((previous) => ({ ...previous, [name]: value }));
-    }
+    const { name, value } = event.target;
+    const field = name as keyof ContactForm;
+    setForm((previous) => ({ ...previous, [field]: value }));
   };
 
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const onResidenceChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setForm((previous) => ({ ...previous, kansaiResidence: value as ContactForm["kansaiResidence"] }));
+  };
+
+  const onBudgetChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setForm((previous) => ({ ...previous, budget: value as ContactForm["budget"] }));
+  };
+
+  const onTimelineChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setForm((previous) => ({ ...previous, timeline: value as ContactForm["timeline"] }));
+  };
+
+  const onDesiredAreaChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const { value, checked } = event.target;
+    setForm((previous) => {
+      const set = new Set(previous.desiredAreas);
+      if (checked) {
+        set.add(value);
+      } else {
+        set.delete(value);
+      }
+      return { ...previous, desiredAreas: Array.from(set) };
+    });
+  };
+
+  const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSubmitted(true);
+
+    if (submitting) {
+      return;
+    }
+
+    if (form.desiredAreas.length === 0) {
+      setError("リフォーム希望箇所を最低1つ選択してください。");
+      return;
+    }
+
+    setError(null);
+    setSubmitting(true);
+
+    try {
+      const response = await fetch("/.netlify/functions/send-contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(form),
+      });
+
+      if (!response.ok) {
+        const errorResponse = await response.json().catch(() => null);
+        const message =
+          errorResponse && typeof errorResponse.error === "string"
+            ? errorResponse.error
+            : "送信に失敗しました。時間を置いて再度お試しください。";
+        throw new Error(message);
+      }
+
+      setSubmitted(true);
+      setForm(defaultForm);
+    } catch (submissionError) {
+      if (submissionError instanceof Error) {
+        setError(submissionError.message);
+      } else {
+        setError("送信に失敗しました。時間を置いて再度お試しください。");
+      }
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const Feature = ({ title, desc }: { title: string; desc: string }) => (
@@ -625,15 +699,17 @@ export default function ReformLandingJP() {
       <section id="contact" className="py-16 bg-indigo-600/5">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-10 items-start">
           <div>
-            <h3 className="text-2xl font-bold">無料見積・相談</h3>
+            <h3 className="text-2xl font-bold">お問い合わせフォーム</h3>
             <p className="text-gray-700 mt-2">
-              写真や図面があれば、概算が早く正確になります。LINEやメールでのやり取りも可能です。
+              お手数ですが、下記の内容にお答えしてお問い合わせしてください。
             </p>
-            <ul className="mt-4 text-sm text-gray-700 list-disc list-inside">
-              <li>希望工事 / 施工箇所 / ご予算 / 期日</li>
-              <li>お住まいの市区町村 / 駐車・搬入条件</li>
-              <li>参考写真(現況/希望イメージ)</li>
-            </ul>
+            <p className="text-gray-700 mt-2">
+              お問い合わせから３営業日以内に、ご連絡します。
+            </p>
+            <p className="text-gray-700 mt-2">
+              いただいた情報は、お見積りやご相談のためだけに使用します。第三者に公開されることはありません。
+            </p>
+            <p className="text-sm text-gray-500 mt-6">一級 Akira Ban</p>
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
               <a
                 className="px-4 py-2 rounded-xl bg-emerald-600 text-white font-semibold shadow hover:opacity-90"
@@ -643,7 +719,7 @@ export default function ReformLandingJP() {
               </a>
               <a
                 className="px-4 py-2 rounded-xl bg-white text-indigo-700 font-semibold border hover:bg-indigo-50"
-                href="mailto:info@example.com"
+                href="mailto:banakira0326@gmail.com"
               >
                 メールで相談
               </a>
@@ -661,81 +737,196 @@ export default function ReformLandingJP() {
                 <p className="text-sm text-gray-600 mt-2">
                   担当者より折り返しご連絡いたします(平日)。
                 </p>
+                <button
+                  type="button"
+                  onClick={() => setSubmitted(false)}
+                  className="mt-6 inline-flex items-center justify-center rounded-xl border border-indigo-200 px-4 py-2 text-sm font-semibold text-indigo-600 hover:bg-indigo-50"
+                >
+                  もう一度お問い合わせする
+                </button>
               </div>
             ) : (
               <>
-                <div className="grid sm:grid-cols-2 gap-4">
+                <div className="space-y-6">
                   <div>
-                    <label className="text-sm font-medium">お名前</label>
-                    <input
-                      required
-                      name="name"
-                      value={form.name}
-                      onChange={onChange}
-                      placeholder="山田 太郎"
-                      className="mt-1 w-full px-3 py-2 rounded-xl border focus:outline-none focus:ring-2 focus:ring-indigo-600"
-                    />
+                    <label className="text-sm font-semibold flex items-center gap-1">
+                      現住所は関西地域ですか？<span className="text-rose-500">*</span>
+                    </label>
+                    <div className="mt-2 grid gap-2 sm:grid-cols-3">
+                      {["はい", "いいえ", "関西に引っ越し予定"].map((option) => (
+                        <label
+                          key={option}
+                          className={`flex items-center gap-2 rounded-xl border px-3 py-2 text-sm cursor-pointer transition ${
+                            form.kansaiResidence === option
+                              ? "border-indigo-500 bg-indigo-50"
+                              : "hover:border-indigo-300"
+                          }`}
+                        >
+                          <input
+                            type="radio"
+                            name="kansaiResidence"
+                            value={option}
+                            checked={form.kansaiResidence === option}
+                            onChange={onResidenceChange}
+                            className="text-indigo-600"
+                            required
+                          />
+                          {option}
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <div>
+                      <label className="text-sm font-semibold flex items-center gap-1">
+                        お名前<span className="text-rose-500">*</span>
+                      </label>
+                      <input
+                        required
+                        name="name"
+                        value={form.name}
+                        onChange={onChange}
+                        placeholder="山田 太郎"
+                        className="mt-1 w-full px-3 py-2 rounded-xl border focus:outline-none focus:ring-2 focus:ring-indigo-600"
+                      />
+                    </div>
+                    <div>
+                      <label className="text-sm font-semibold flex items-center gap-1">
+                        メールアドレス<span className="text-rose-500">*</span>
+                      </label>
+                      <input
+                        required
+                        type="email"
+                        name="email"
+                        value={form.email}
+                        onChange={onChange}
+                        placeholder="example@mail.com"
+                        className="mt-1 w-full px-3 py-2 rounded-xl border focus:outline-none focus:ring-2 focus:ring-indigo-600"
+                      />
+                    </div>
                   </div>
                   <div>
-                    <label className="text-sm font-medium">メール</label>
-                    <input
-                      required
-                      type="email"
-                      name="email"
-                      value={form.email}
-                      onChange={onChange}
-                      placeholder="example@mail.com"
-                      className="mt-1 w-full px-3 py-2 rounded-xl border focus:outline-none focus:ring-2 focus:ring-indigo-600"
-                    />
+                    <label className="text-sm font-semibold flex items-center gap-1">
+                      リフォーム希望箇所（複数選択可）<span className="text-rose-500">*</span>
+                    </label>
+                    <div className="mt-2 grid gap-2 sm:grid-cols-2">
+                      {desiredAreaOptions.map((option) => (
+                        <label
+                          key={option}
+                          className={`flex items-center gap-2 rounded-xl border px-3 py-2 text-sm cursor-pointer transition ${
+                            form.desiredAreas.includes(option)
+                              ? "border-indigo-500 bg-indigo-50"
+                              : "hover:border-indigo-300"
+                          }`}
+                        >
+                          <input
+                            type="checkbox"
+                            name="desiredAreas"
+                            value={option}
+                            checked={form.desiredAreas.includes(option)}
+                            onChange={onDesiredAreaChange}
+                            className="text-indigo-600"
+                          />
+                          {option}
+                        </label>
+                      ))}
+                    </div>
                   </div>
                   <div>
-                    <label className="text-sm font-medium">電話番号</label>
-                    <input
-                      name="phone"
-                      value={form.phone}
-                      onChange={onChange}
-                      placeholder="090-0000-0000"
-                      className="mt-1 w-full px-3 py-2 rounded-xl border focus:outline-none focus:ring-2 focus:ring-indigo-600"
-                    />
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium">エリア(市区町村)</label>
-                    <input
-                      name="area"
-                      value={form.area}
-                      onChange={onChange}
-                      placeholder="○○市△△区"
-                      className="mt-1 w-full px-3 py-2 rounded-xl border focus:outline-none focus:ring-2 focus:ring-indigo-600"
-                    />
-                  </div>
-                  <div className="sm:col-span-2">
-                    <label className="text-sm font-medium">ご相談内容</label>
+                    <label className="text-sm font-semibold flex items-center gap-1">
+                      リフォームの目的 / お悩み（自由記述）<span className="text-rose-500">*</span>
+                    </label>
                     <textarea
                       required
-                      name="message"
-                      value={form.message}
+                      name="purpose"
+                      value={form.purpose}
                       onChange={onChange}
-                      placeholder="例) 6畳のクロス張替えと床(フロアタイル)を検討中。見積をお願いします。"
+                      placeholder="例) 断熱性能を上げたい、浴室をバリアフリーにしたい 等"
                       className="mt-1 w-full h-28 px-3 py-2 rounded-xl border focus:outline-none focus:ring-2 focus:ring-indigo-600"
                     />
                   </div>
+                  <div>
+                    <label className="text-sm font-semibold flex items-center gap-1">
+                      ご予算イメージ<span className="text-rose-500">*</span>
+                    </label>
+                    <div className="mt-2 grid gap-2 sm:grid-cols-2">
+                      {["〜50万円", "50〜100万円", "100〜300万円", "300万円以上"].map(
+                        (option) => (
+                          <label
+                            key={option}
+                            className={`flex items-center gap-2 rounded-xl border px-3 py-2 text-sm cursor-pointer transition ${
+                              form.budget === option
+                                ? "border-indigo-500 bg-indigo-50"
+                                : "hover:border-indigo-300"
+                            }`}
+                          >
+                            <input
+                              type="radio"
+                              name="budget"
+                              value={option}
+                              checked={form.budget === option}
+                              onChange={onBudgetChange}
+                              className="text-indigo-600"
+                              required
+                            />
+                            {option}
+                          </label>
+                        )
+                      )}
+                    </div>
+                  </div>
+                  <div>
+                    <label className="text-sm font-semibold flex items-center gap-1">
+                      希望時期<span className="text-rose-500">*</span>
+                    </label>
+                    <div className="mt-2 grid gap-2 sm:grid-cols-2">
+                      {["すぐにでも", "3か月以内", "半年以内", "1年以内"].map((option) => (
+                        <label
+                          key={option}
+                          className={`flex items-center gap-2 rounded-xl border px-3 py-2 text-sm cursor-pointer transition ${
+                            form.timeline === option
+                              ? "border-indigo-500 bg-indigo-50"
+                              : "hover:border-indigo-300"
+                          }`}
+                        >
+                          <input
+                            type="radio"
+                            name="timeline"
+                            value={option}
+                            checked={form.timeline === option}
+                            onChange={onTimelineChange}
+                            className="text-indigo-600"
+                            required
+                          />
+                          {option}
+                        </label>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <label className="text-sm font-semibold">
+                      気になっていること、質問したいこと
+                    </label>
+                    <textarea
+                      name="questions"
+                      value={form.questions}
+                      onChange={onChange}
+                      placeholder="ご不明点や確認したいことがあればご記入ください"
+                      className="mt-1 w-full h-24 px-3 py-2 rounded-xl border focus:outline-none focus:ring-2 focus:ring-indigo-600"
+                    />
+                  </div>
                 </div>
-                <label className="mt-3 flex items-center gap-2 text-xs text-gray-600">
-                  <input
-                    type="checkbox"
-                    name="agree"
-                    checked={form.agree}
-                    onChange={onChange}
-                    className="rounded border-gray-300"
-                    required
-                  />
-                  プライバシーポリシーに同意します(ダミー)。
-                </label>
+                {error && (
+                  <p className="mt-4 text-sm text-rose-500" role="alert">
+                    {error}
+                  </p>
+                )}
                 <button
                   type="submit"
-                  className="mt-4 w-full py-3 rounded-xl bg-indigo-600 text-white font-semibold shadow hover:opacity-90"
+                  className="mt-6 w-full py-3 rounded-xl bg-indigo-600 text-white font-semibold shadow hover:opacity-90 disabled:opacity-60"
+                  disabled={submitting}
                 >
-                  送信する
+                  {submitting ? "送信中..." : "送信する"}
                 </button>
               </>
             )}
