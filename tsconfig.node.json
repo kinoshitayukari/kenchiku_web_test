@@ -2,8 +2,8 @@
   "compilerOptions": {
     "composite": true,
     "target": "ES2020",
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "lib": ["ES2020"],
     "allowSyntheticDefaultImports": true,
     "types": ["node"],
