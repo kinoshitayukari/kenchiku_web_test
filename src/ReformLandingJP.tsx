@@ -23,13 +23,15 @@ export default function ReformLandingJP() {
   const [submitted, setSubmitted] = useState(false);
 
   const onChange = (
-    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    const { name, value } = e.target;
+    const target = event.target;
 
-    if (e.target instanceof HTMLInputElement && e.target.type === "checkbox") {
-      setForm((previous) => ({ ...previous, [name]: e.target.checked }));
+    if (target instanceof HTMLInputElement && target.type === "checkbox") {
+      const { name, checked } = target;
+      setForm((previous) => ({ ...previous, [name]: checked }));
     } else {
+      const { name, value } = target;
       setForm((previous) => ({ ...previous, [name]: value }));
     }
   };
