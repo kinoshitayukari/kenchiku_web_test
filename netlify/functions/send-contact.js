@@ -1,60 +1,121 @@
 const nodemailer = require("nodemailer");
 
 const REQUIRED_ENV = ["SMTP_HOST", "SMTP_PORT", "SMTP_USER", "SMTP_PASS"];
+const CORS_HEADERS = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST,OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type",
+};
+const RESIDENCE_OPTIONS = ["はい", "いいえ", "関西に引っ越し予定"];
+const BUDGET_OPTIONS = ["〜50万円", "50〜100万円", "100〜300万円", "300万円以上"];
+const TIMELINE_OPTIONS = ["すぐにでも", "3か月以内", "半年以内", "1年以内"];
+const DESIRED_AREA_OPTIONS = [
+  "キッチン",
+  "浴室",
+  "トイレ",
+  "外壁",
+  "屋根",
+  "内装",
+  "その他",
+];
+
+const sanitizeSingleLine = (value) =>
+  typeof value === "string" ? value.replace(/[\r\n]+/g, " ").trim() : "";
+const sanitizeMultiline = (value) =>
+  typeof value === "string" ? value.replace(/\r/g, "").trim() : "";
+
+const validateEmail = (value) =>
+  typeof value === "string" && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+
+const assertInOptions = (value, options, message) => {
+  if (!options.includes(value)) {
+    throw new Error(message);
+  }
+};
 
 const validatePayload = (payload) => {
-  if (!payload) {
+  if (!payload || typeof payload !== "object") {
     throw new Error("データが送信されていません。");
   }
 
-  const {
-    kansaiResidence,
-    name,
-    email,
-    desiredAreas,
-    purpose,
-    budget,
-    timeline,
-    questions,
-  } = payload;
+  const raw = {
+    kansaiResidence: sanitizeSingleLine(payload.kansaiResidence),
+    name: sanitizeSingleLine(payload.name),
+    email: sanitizeSingleLine(payload.email),
+    desiredAreas: Array.isArray(payload.desiredAreas)
+      ? payload.desiredAreas.map(sanitizeSingleLine)
+      : [],
+    purpose: sanitizeMultiline(payload.purpose),
+    budget: sanitizeSingleLine(payload.budget),
+    timeline: sanitizeSingleLine(payload.timeline),
+    questions: sanitizeMultiline(payload.questions || ""),
+  };
 
-  if (!kansaiResidence) {
+  if (!raw.kansaiResidence) {
     throw new Error("現住所の情報を選択してください。");
   }
+  assertInOptions(
+    raw.kansaiResidence,
+    RESIDENCE_OPTIONS,
+    "現住所の選択肢が正しくありません。"
+  );
 
-  if (!name) {
+  if (!raw.name) {
     throw new Error("お名前を入力してください。");
   }
-
-  if (!email) {
-    throw new Error("メールアドレスを入力してください。");
+  if (raw.name.length > 100) {
+    throw new Error("お名前は100文字以内で入力してください。");
   }
 
-  if (!Array.isArray(desiredAreas) || desiredAreas.length === 0) {
+  if (!validateEmail(raw.email)) {
+    throw new Error("正しいメールアドレスを入力してください。");
+  }
+
+  const filteredDesiredAreas = DESIRED_AREA_OPTIONS.filter((option) =>
+    raw.desiredAreas.includes(option)
+  );
+  if (filteredDesiredAreas.length === 0) {
     throw new Error("リフォーム希望箇所を選択してください。");
   }
 
-  if (!purpose) {
+  if (!raw.purpose) {
     throw new Error("リフォームの目的/お悩みを入力してください。");
   }
-
-  if (!budget) {
-    throw new Error("ご予算イメージを選択してください。");
+  if (raw.purpose.length > 2000) {
+    throw new Error("リフォームの目的/お悩みは2000文字以内で入力してください。");
   }
 
-  if (!timeline) {
+  if (!raw.budget) {
+    throw new Error("ご予算イメージを選択してください。");
+  }
+  assertInOptions(
+    raw.budget,
+    BUDGET_OPTIONS,
+    "ご予算イメージの選択肢が正しくありません。"
+  );
+
+  if (!raw.timeline) {
     throw new Error("希望時期を選択してください。");
+  }
+  assertInOptions(
+    raw.timeline,
+    TIMELINE_OPTIONS,
+    "希望時期の選択肢が正しくありません。"
+  );
+
+  if (raw.questions.length > 2000) {
+    throw new Error("ご質問内容は2000文字以内で入力してください。");
   }
 
   return {
-    kansaiResidence,
-    name,
-    email,
-    desiredAreas,
-    purpose,
-    budget,
-    timeline,
-    questions: questions || "",
+    kansaiResidence: raw.kansaiResidence,
+    name: raw.name,
+    email: raw.email,
+    desiredAreas: filteredDesiredAreas,
+    purpose: raw.purpose,
+    budget: raw.budget,
+    timeline: raw.timeline,
+    questions: raw.questions,
   };
 };
 
@@ -83,13 +144,24 @@ const buildMailText = (data) => {
 };
 
 exports.handler = async (event) => {
+  if (event.httpMethod === "OPTIONS") {
+    return {
+      statusCode: 204,
+      headers: {
+        ...CORS_HEADERS,
+      },
+    };
+  }
+
   if (event.httpMethod !== "POST") {
     return {
       statusCode: 405,
       headers: {
         Allow: "POST",
+        ...CORS_HEADERS,
+        "Content-Type": "application/json",
       },
-      body: "Method Not Allowed",
+      body: JSON.stringify({ error: "Method Not Allowed" }),
     };
   }
 
@@ -126,6 +198,10 @@ exports.handler = async (event) => {
 
     return {
       statusCode: 200,
+      headers: {
+        ...CORS_HEADERS,
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({ success: true }),
     };
   } catch (error) {
@@ -138,6 +214,10 @@ exports.handler = async (event) => {
 
     return {
       statusCode: 400,
+      headers: {
+        ...CORS_HEADERS,
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({ error: message }),
     };
   }

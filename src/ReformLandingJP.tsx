@@ -65,7 +65,8 @@ export default function ReformLandingJP() {
       } else {
         set.delete(value);
       }
-      return { ...previous, desiredAreas: Array.from(set) };
+      const ordered = desiredAreaOptions.filter((option) => set.has(option));
+      return { ...previous, desiredAreas: ordered };
     });
   };
 
@@ -103,7 +104,7 @@ export default function ReformLandingJP() {
       }
 
       setSubmitted(true);
-      setForm(defaultForm);
+      setForm(() => ({ ...defaultForm }));
     } catch (submissionError) {
       if (submissionError instanceof Error) {
         setError(submissionError.message);
@@ -917,7 +918,11 @@ export default function ReformLandingJP() {
                   </div>
                 </div>
                 {error && (
-                  <p className="mt-4 text-sm text-rose-500" role="alert">
+                  <p
+                    className="mt-4 text-sm text-rose-500"
+                    role="alert"
+                    aria-live="assertive"
+                  >
                     {error}
                   </p>
                 )}
