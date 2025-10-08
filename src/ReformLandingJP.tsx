@@ -1,3 +1,5 @@
+import { articleMetas } from "./data/articles";
+
 export default function ReformLandingJP() {
   const Feature = ({ title, desc }: { title: string; desc: string }) => (
     <div className="p-6 rounded-2xl bg-white/70 backdrop-blur shadow-sm border">
@@ -46,6 +48,11 @@ export default function ReformLandingJP() {
       <td className="py-3 px-4 text-xs text-gray-500">{note}</td>
     </tr>
   );
+
+  const articleLinks = articleMetas.slice(0, 4).map((article) => ({
+    ...article,
+    href: `/articles/${article.slug}`,
+  }));
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-50 via-white to-white text-gray-900">
@@ -612,7 +619,47 @@ export default function ReformLandingJP() {
               ※実運用ではプライバシーポリシー/特商法表記/会社情報の掲載を推奨します。
             </p>
           </div>
-          <div className="bg-white border rounded-2xl shadow-sm p-3 sm:p-6">
+          <div className="bg-white border rounded-2xl shadow-sm p-3 sm:p-6 space-y-6">
+            <div>
+              <h4 className="text-lg font-semibold">最新の記事</h4>
+              <p className="text-sm text-gray-600 mt-1">
+                リフォームをご検討中の方に役立つ情報をまとめました。気になるテーマをご覧ください。
+              </p>
+              <ul className="mt-4 space-y-4">
+                {articleLinks.map((article) => (
+                  <li key={article.href} className="group">
+                    <a
+                      href={article.href}
+                      className="text-indigo-700 font-semibold group-hover:text-indigo-500"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {article.title}
+                    </a>
+                    <p className="text-xs text-gray-500 mt-1">
+                      公開日:
+                      {" "}
+                      {new Date(article.publishedAt).toLocaleDateString("ja-JP", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </p>
+                    <p className="text-sm text-gray-600 mt-1">{article.summary}</p>
+                  </li>
+                ))}
+              </ul>
+              <div className="pt-2">
+                <a
+                  href="/articles/index.html"
+                  className="inline-flex items-center text-sm font-semibold text-indigo-700 hover:text-indigo-500"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  記事をすべて見る ↗
+                </a>
+              </div>
+            </div>
             <div className="relative">
               <iframe
                 title="お問い合わせフォーム"

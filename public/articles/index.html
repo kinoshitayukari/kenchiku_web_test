@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>リフォーム情報 記事一覧</title>
+    <meta
+      name="description"
+      content="直営リフォーム工房がリフォーム検討者向けにお届けする最新の記事一覧。計画や収納、省エネなど役立つ情報をまとめています。"
+    />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    <style>
+      body {
+        background: #f9fafb;
+      }
+      header,
+      footer,
+      main {
+        max-width: 920px;
+        margin: 0 auto;
+      }
+      nav.article-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.5rem 1rem 0;
+        font-size: 0.95rem;
+      }
+      nav.article-nav a {
+        color: #4338ca;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      nav.article-nav a:hover {
+        text-decoration: underline;
+      }
+      ul.article-list {
+        list-style: none;
+        padding: 0;
+        margin: 2rem 0 3rem;
+        display: grid;
+        gap: 1.5rem;
+      }
+      ul.article-list li {
+        background: #fff;
+        border-radius: 1rem;
+        border: 1px solid #e5e7eb;
+        padding: 1.5rem;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      }
+      ul.article-list li a {
+        color: #111827;
+        text-decoration: none;
+      }
+      ul.article-list li a h2 {
+        margin-bottom: 0.5rem;
+      }
+      ul.article-list li a:hover h2 {
+        color: #4338ca;
+      }
+      .article-meta {
+        font-size: 0.85rem;
+        color: #6b7280;
+        margin-bottom: 0.75rem;
+      }
+      footer {
+        padding: 2rem 1rem 3rem;
+        font-size: 0.8rem;
+        color: #6b7280;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="article-nav">
+        <a href="/">← トップページへ戻る</a>
+        <a href="/articles/index.html" aria-current="page">記事一覧</a>
+      </nav>
+      <div class="container" style="padding-bottom: 0">
+        <h1>リフォーム情報 記事一覧</h1>
+        <p>
+          直営リフォーム工房が提供する、リフォーム計画や収納、省エネ対策などの実践的なヒントをまとめた記事です。
+        </p>
+      </div>
+    </header>
+    <main class="container">
+      <ul class="article-list">
+        <li>
+          <a href="/articles/renovation-planning-guide.html">
+            <h2>リフォーム計画の基本ガイド</h2>
+            <p class="article-meta">
+              <time datetime="2024-05-12">2024年5月12日公開</time>
+            </p>
+            <p>
+              予算やスケジュールの立て方など、工事前に押さえておきたい基礎を解説します。
+            </p>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/kitchen-storage-ideas.html">
+            <h2>キッチン収納を見直す３つのポイント</h2>
+            <p class="article-meta">
+              <time datetime="2024-05-08">2024年5月8日公開</time>
+            </p>
+            <p>
+              毎日の料理をスムーズにするための収納改善のコツを紹介します。
+            </p>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/bathroom-renovation-checklist.html">
+            <h2>バスルーム改修チェックリスト</h2>
+            <p class="article-meta">
+              <time datetime="2024-05-05">2024年5月5日公開</time>
+            </p>
+            <p>
+              浴室リフォームで確認したい設備や工程をチェックリスト形式でまとめました。
+            </p>
+          </a>
+        </li>
+        <li>
+          <a href="/articles/energy-saving-remodel-ideas.html">
+            <h2>省エネリフォームで光熱費を抑えるコツ</h2>
+            <p class="article-meta">
+              <time datetime="2024-05-02">2024年5月2日公開</time>
+            </p>
+            <p>
+              断熱や高効率設備で快適性と省エネを両立させるポイントを紹介します。
+            </p>
+          </a>
+        </li>
+      </ul>
+    </main>
+    <footer>
+      <p>© <span id="year"></span> 直営リフォーム工房</p>
+    </footer>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
