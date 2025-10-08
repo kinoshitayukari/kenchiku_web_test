@@ -596,47 +596,6 @@ export default function ReformLandingJP() {
               </details>
             ))}
           </div>
-          <div className="mt-12">
-            <h3 className="text-lg font-semibold text-gray-900 text-center">
-              よくあるご質問の続きに、関連する読み物もご紹介します
-            </h3>
-            <p className="text-sm text-gray-600 text-center mt-2">
-              リフォームをさらに深く理解するための４つの記事をピックアップしました。
-            </p>
-            <div className="mt-6 grid gap-6 md:grid-cols-2">
-              {featuredArticles.map((article, index) => (
-                <a
-                  key={article.href}
-                  href={article.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="group block rounded-2xl border bg-white shadow-sm overflow-hidden hover:shadow-md transition"
-                >
-                  <div className="relative">
-                    <div
-                      className={`aspect-[16/9] w-full bg-gradient-to-br ${gradientPresets[index % gradientPresets.length]} opacity-90`}
-                    />
-                    <span className="absolute inset-0 flex items-center justify-center text-white text-xs font-semibold tracking-wide">
-                      アイキャッチ画像サンプル
-                    </span>
-                  </div>
-                  <div className="p-5">
-                    <p className="text-xs text-gray-500">
-                      {new Date(article.publishedAt).toLocaleDateString("ja-JP", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
-                    </p>
-                    <h4 className="mt-2 text-base font-semibold text-gray-900 group-hover:text-indigo-600">
-                      {article.title}
-                    </h4>
-                    <p className="mt-2 text-sm text-gray-600">{article.summary}</p>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
