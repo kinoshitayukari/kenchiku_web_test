@@ -4,34 +4,112 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>キッチン収納を見直す３つのポイント</title>
+    <meta
+      name="description"
+      content="毎日の料理をスムーズにするために、キッチン収納を見直す３つのポイントを紹介。動線と収納量、使い勝手の改善アイデアをまとめました。"
+    />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+    <style>
+      body {
+        background: #f9fafb;
+      }
+      header,
+      footer,
+      main {
+        max-width: 760px;
+        margin: 0 auto;
+      }
+      nav.article-nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        padding: 1.5rem 1rem 0;
+        font-size: 0.95rem;
+      }
+      nav.article-nav a {
+        color: #4338ca;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      nav.article-nav a:hover {
+        text-decoration: underline;
+      }
+      main.container {
+        padding-top: 0;
+      }
+      article {
+        background: #fff;
+        border-radius: 1.25rem;
+        border: 1px solid #e5e7eb;
+        padding: 2.5rem 2rem;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      }
+      article h1 {
+        margin-bottom: 0.75rem;
+      }
+      article h2 {
+        margin-top: 2.25rem;
+      }
+      article ul {
+        margin-left: 1.2rem;
+      }
+      footer {
+        padding: 2rem 1rem 3rem;
+        font-size: 0.8rem;
+        color: #6b7280;
+        text-align: center;
+      }
+    </style>
   </head>
   <body>
+    <header>
+      <nav class="article-nav">
+        <a href="/">← トップページへ戻る</a>
+        <a href="/articles/index.html">記事一覧</a>
+      </nav>
+    </header>
     <main class="container">
       <article>
         <header>
           <h1>キッチン収納を見直す３つのポイント</h1>
-          <p>公開日: 2024年5月20日</p>
+          <p class="article-meta">
+            <time datetime="2024-05-08">2024年5月8日</time> ｜ 監修: 直営リフォーム工房 編集部
+          </p>
         </header>
         <p>
-          キッチンは小物が多く雑然としがちです。収納を見直すだけで、動線の改善や調理効率アップが期待できます。
+          調理スペースが狭い、必要な道具が見つからないといったお悩みは、収納の仕組みを整えることで解消できます。
+          キッチンリフォーム時に意識したい３つのポイントを押さえて、日々の料理をもっとスムーズにしましょう。
         </p>
-        <h2>1. 取り出しやすさを優先</h2>
+        <h2>1. 作業動線を優先したレイアウト</h2>
+        <ul>
+          <li>冷蔵庫・シンク・コンロの三角形動線を意識し、移動距離を短縮する配置にする。</li>
+          <li>よく使う調理器具は腰から目線の高さに集約し、取り出しやすさを優先する。</li>
+          <li>パントリーや背面収納の位置を見直し、調理中の振り返り動作を減らす。</li>
+        </ul>
+        <h2>2. 収納量と仕分けの仕組みづくり</h2>
+        <ul>
+          <li>深型引き出しには仕切りやスタンドを組み合わせ、鍋やフライパンを立てて収納する。</li>
+          <li>調味料や乾物はボックスで分類し、ラベルを貼って在庫を把握しやすくする。</li>
+          <li>吊戸棚には昇降式ラックやステップ台を用意し、使い勝手を高める。</li>
+        </ul>
+        <h2>3. 清掃性とメンテナンス性の向上</h2>
+        <ul>
+          <li>ワークトップやキッチンパネルは汚れが落としやすい素材を選び、日々の掃除を短縮する。</li>
+          <li>換気扇は整流板付きや自動洗浄タイプなど、お手入れが簡単な機種を検討する。</li>
+          <li>水まわりのコーキングや床材は防水・防汚性能の高いものを採用する。</li>
+        </ul>
         <p>
-          使う頻度の高い調理器具ほど手前に配置しましょう。引き出しの中は仕切りトレーを活用すると整頓しやすくなります。
+          収納の課題はライフスタイルによって異なるため、家族の使い方をヒアリングしながら計画を進めることが大切です。
+          リフォームを機に、モノの定位置を決めて整理整頓しやすいキッチンを目指しましょう。
         </p>
-        <h2>2. デッドスペースの活用</h2>
-        <p>
-          足元の巾木収納や吊り戸棚の昇降機能など、既存のキッチンにも後付けできるアイテムが多数あります。
-        </p>
-        <h2>3. 見せる収納と隠す収納のバランス</h2>
-        <p>
-          デザイン性の高い器具はオープン棚に飾り、日用品は扉付きに収めると生活感を抑えられます。
-        </p>
-        <footer>
-          <p>執筆: 収納アドバイザー 松田</p>
-        </footer>
       </article>
     </main>
+    <footer>
+      <p>© <span id="year"></span> 直営リフォーム工房</p>
+    </footer>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
   </body>
 </html>

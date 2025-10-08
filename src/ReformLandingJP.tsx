@@ -1,3 +1,5 @@
+import { articleMetas } from "./data/articles";
+
 export default function ReformLandingJP() {
   const Feature = ({ title, desc }: { title: string; desc: string }) => (
     <div className="p-6 rounded-2xl bg-white/70 backdrop-blur shadow-sm border">
@@ -47,28 +49,10 @@ export default function ReformLandingJP() {
     </tr>
   );
 
-  const articleLinks = [
-    {
-      title: "リフォーム計画の基本ガイド",
-      href: "/articles/renovation-planning-guide.html",
-      summary: "予算やスケジュールの立て方など、工事前に押さえておきたい基礎を解説します。",
-    },
-    {
-      title: "キッチン収納を見直す３つのポイント",
-      href: "/articles/kitchen-storage-ideas.html",
-      summary: "毎日の料理をスムーズにするための収納改善のコツを紹介します。",
-    },
-    {
-      title: "バスルーム改修チェックリスト",
-      href: "/articles/bathroom-renovation-checklist.html",
-      summary: "浴室リフォームで確認したい設備や工程をチェックリスト形式でまとめました。",
-    },
-    {
-      title: "省エネリフォームで光熱費を抑えるコツ",
-      href: "/articles/energy-saving-remodel-ideas.html",
-      summary: "断熱や高効率設備で快適性と省エネを両立させるポイントを紹介します。",
-    },
-  ];
+  const articleLinks = articleMetas.slice(0, 4).map((article) => ({
+    ...article,
+    href: `/articles/${article.slug}`,
+  }));
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-50 via-white to-white text-gray-900">
@@ -652,10 +636,29 @@ export default function ReformLandingJP() {
                     >
                       {article.title}
                     </a>
+                    <p className="text-xs text-gray-500 mt-1">
+                      公開日:
+                      {" "}
+                      {new Date(article.publishedAt).toLocaleDateString("ja-JP", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </p>
                     <p className="text-sm text-gray-600 mt-1">{article.summary}</p>
                   </li>
                 ))}
               </ul>
+              <div className="pt-2">
+                <a
+                  href="/articles/index.html"
+                  className="inline-flex items-center text-sm font-semibold text-indigo-700 hover:text-indigo-500"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  記事をすべて見る ↗
+                </a>
+              </div>
             </div>
             <div className="relative">
               <iframe
