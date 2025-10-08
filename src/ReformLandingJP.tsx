@@ -49,10 +49,22 @@ export default function ReformLandingJP() {
     </tr>
   );
 
-  const articleLinks = articleMetas.slice(0, 4).map((article) => ({
+  const featuredArticles = articleMetas.slice(0, 4).map((article) => ({
     ...article,
     href: `/articles/${article.slug}`,
   }));
+
+  const articleLinks = articleMetas.map((article) => ({
+    ...article,
+    href: `/articles/${article.slug}`,
+  }));
+
+  const gradientPresets = [
+    "from-indigo-500 via-blue-500 to-sky-400",
+    "from-emerald-500 via-teal-500 to-cyan-400",
+    "from-amber-500 via-orange-500 to-rose-400",
+    "from-purple-500 via-violet-500 to-indigo-400",
+  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-50 via-white to-white text-gray-900">
@@ -584,6 +596,102 @@ export default function ReformLandingJP() {
               </details>
             ))}
           </div>
+          <div className="mt-12">
+            <h3 className="text-lg font-semibold text-gray-900 text-center">
+              よくあるご質問の続きに、関連する読み物もご紹介します
+            </h3>
+            <p className="text-sm text-gray-600 text-center mt-2">
+              リフォームをさらに深く理解するための４つの記事をピックアップしました。
+            </p>
+            <div className="mt-6 grid gap-6 md:grid-cols-2">
+              {featuredArticles.map((article, index) => (
+                <a
+                  key={article.href}
+                  href={article.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group block rounded-2xl border bg-white shadow-sm overflow-hidden hover:shadow-md transition"
+                >
+                  <div className="relative">
+                    <div
+                      className={`aspect-[16/9] w-full bg-gradient-to-br ${gradientPresets[index % gradientPresets.length]} opacity-90`}
+                    />
+                    <span className="absolute inset-0 flex items-center justify-center text-white text-xs font-semibold tracking-wide">
+                      アイキャッチ画像サンプル
+                    </span>
+                  </div>
+                  <div className="p-5">
+                    <p className="text-xs text-gray-500">
+                      {new Date(article.publishedAt).toLocaleDateString("ja-JP", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </p>
+                    <h4 className="mt-2 text-base font-semibold text-gray-900 group-hover:text-indigo-600">
+                      {article.title}
+                    </h4>
+                    <p className="mt-2 text-sm text-gray-600">{article.summary}</p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="articles" className="py-16 bg-gradient-to-b from-white via-indigo-50/60 to-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionTitle
+            kicker="Articles"
+            title="リフォーム情報 記事一覧"
+            subtitle="最新の記事から、費用や計画の考え方まで幅広くご紹介しています。"
+          />
+          <div className="grid gap-6 md:grid-cols-2">
+            {articleLinks.map((article, index) => (
+              <a
+                key={article.href}
+                href={article.href}
+                target="_blank"
+                rel="noreferrer"
+                className="group flex flex-col rounded-2xl border bg-white shadow-sm hover:shadow-md transition overflow-hidden"
+              >
+                <div
+                  className={`aspect-[16/9] bg-gradient-to-br ${gradientPresets[index % gradientPresets.length]} opacity-90`}
+                >
+                  <div className="flex h-full w-full items-center justify-center text-white text-sm font-semibold tracking-wide">
+                    アイキャッチ画像サンプル
+                  </div>
+                </div>
+                <div className="p-6 flex-1 flex flex-col">
+                  <p className="text-xs text-gray-500">
+                    {new Date(article.publishedAt).toLocaleDateString("ja-JP", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </p>
+                  <h3 className="mt-2 text-lg font-semibold text-gray-900 group-hover:text-indigo-600">
+                    {article.title}
+                  </h3>
+                  <p className="mt-3 text-sm text-gray-600 flex-1">{article.summary}</p>
+                  <span className="mt-4 inline-flex items-center text-sm font-semibold text-indigo-600">
+                    記事を読む ↗
+                  </span>
+                </div>
+              </a>
+            ))}
+          </div>
+          <div className="text-center mt-8">
+            <a
+              href="/articles/index.html"
+              className="inline-flex items-center px-5 py-3 rounded-xl bg-indigo-600 text-white text-sm font-semibold shadow hover:opacity-90"
+              target="_blank"
+              rel="noreferrer"
+            >
+              記事をすべて見る
+            </a>
+          </div>
         </div>
       </section>
 
@@ -621,44 +729,10 @@ export default function ReformLandingJP() {
           </div>
           <div className="bg-white border rounded-2xl shadow-sm p-3 sm:p-6 space-y-6">
             <div>
-              <h4 className="text-lg font-semibold">最新の記事</h4>
+              <h4 className="text-lg font-semibold">フォームからのご相談</h4>
               <p className="text-sm text-gray-600 mt-1">
-                リフォームをご検討中の方に役立つ情報をまとめました。気になるテーマをご覧ください。
+                下記フォームにご希望の工事内容やご質問をご記入ください。担当者より内容を確認の上、ご連絡いたします。
               </p>
-              <ul className="mt-4 space-y-4">
-                {articleLinks.map((article) => (
-                  <li key={article.href} className="group">
-                    <a
-                      href={article.href}
-                      className="text-indigo-700 font-semibold group-hover:text-indigo-500"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      {article.title}
-                    </a>
-                    <p className="text-xs text-gray-500 mt-1">
-                      公開日:
-                      {" "}
-                      {new Date(article.publishedAt).toLocaleDateString("ja-JP", {
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
-                    </p>
-                    <p className="text-sm text-gray-600 mt-1">{article.summary}</p>
-                  </li>
-                ))}
-              </ul>
-              <div className="pt-2">
-                <a
-                  href="/articles/index.html"
-                  className="inline-flex items-center text-sm font-semibold text-indigo-700 hover:text-indigo-500"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  記事をすべて見る ↗
-                </a>
-              </div>
             </div>
             <div className="relative">
               <iframe

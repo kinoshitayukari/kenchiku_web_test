@@ -35,6 +35,17 @@
       nav.article-nav a:hover {
         text-decoration: underline;
       }
+      .layout {
+        display: grid;
+        gap: 2.5rem;
+        margin-bottom: 3rem;
+      }
+      @media (min-width: 1024px) {
+        .layout {
+          grid-template-columns: minmax(0, 1fr) 280px;
+          align-items: start;
+        }
+      }
       main.container {
         padding-top: 0;
       }
@@ -60,6 +71,48 @@
         color: #6b7280;
         text-align: center;
       }
+      .sidebar {
+        background: #fff;
+        border-radius: 1.25rem;
+        border: 1px solid #e5e7eb;
+        padding: 1.75rem 1.5rem;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      }
+      .sidebar h2 {
+        font-size: 1rem;
+        margin: 0 0 1rem;
+      }
+      .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 1rem;
+      }
+      .sidebar li a {
+        color: #4338ca;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .sidebar li a:hover {
+        text-decoration: underline;
+      }
+      .sidebar li p {
+        margin: 0.35rem 0 0;
+        font-size: 0.85rem;
+        color: #6b7280;
+      }
+      .sidebar-more {
+        display: inline-flex;
+        margin-top: 1.5rem;
+        font-weight: 600;
+        color: #111827;
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+      .sidebar-more:hover {
+        color: #4338ca;
+      }
     </style>
   </head>
   <body>
@@ -70,40 +123,60 @@
       </nav>
     </header>
     <main class="container">
-      <article>
-        <header>
-          <h1>リフォーム計画の基本ガイド</h1>
-          <p class="article-meta">
-            <time datetime="2024-05-12">2024年5月12日</time> ｜ 監修: 直営リフォーム工房 編集部
+      <div class="layout">
+        <article>
+          <header>
+            <h1>リフォーム計画の基本ガイド</h1>
+            <p class="article-meta">
+              <time datetime="2024-05-12">2024年5月12日</time> ｜ 監修: 直営リフォーム工房 編集部
+            </p>
+          </header>
+          <p>
+            リフォームを成功させるには、目的と現状を整理したうえで段階的に進めていくことが重要です。
+            本記事では、計画を進める際の基本的なステップと押さえておきたいチェックポイントをまとめました。
           </p>
-        </header>
-        <p>
-          リフォームを成功させるには、目的と現状を整理したうえで段階的に進めていくことが重要です。
-          本記事では、計画を進める際の基本的なステップと押さえておきたいチェックポイントをまとめました。
-        </p>
-        <h2>1. 現状把握と目的の明確化</h2>
-        <ul>
-          <li>住まいの不満点や改善したい箇所を家族で話し合い、優先順位を決める。</li>
-          <li>将来の暮らし方やライフイベントを想定し、必要な機能や間取りを整理する。</li>
-          <li>写真や図面、寸法など現状を把握できる資料を準備する。</li>
-        </ul>
-        <h2>2. 概算予算と資金計画</h2>
-        <ul>
-          <li>希望する仕様の価格帯を調査し、上限額と予備費を含めた予算枠を設定する。</li>
-          <li>ローンや補助金、減税制度の利用可能性を確認し、返済計画をシミュレーションする。</li>
-          <li>複数社の見積もりを比較し、価格だけでなく提案内容や保証も評価する。</li>
-        </ul>
-        <h2>3. スケジュールづくりと段取り</h2>
-        <ul>
-          <li>工事開始までに必要な準備(仮住まい、家具移動、近隣挨拶など)をリストアップする。</li>
-          <li>工事期間と住まい方(在宅か仮住まいか)を決め、家族の予定とすり合わせる。</li>
-          <li>着工前の最終打ち合わせで仕様・色決め・支払い条件などを確認し、記録に残す。</li>
-        </ul>
-        <p>
-          計画段階で情報を整理しておくことで、工事が始まってからの迷いやトラブルを減らせます。
-          信頼できるパートナーと相談しながら、理想の住まいづくりを着実に進めていきましょう。
-        </p>
-      </article>
+          <h2>1. 現状把握と目的の明確化</h2>
+          <ul>
+            <li>住まいの不満点や改善したい箇所を家族で話し合い、優先順位を決める。</li>
+            <li>将来の暮らし方やライフイベントを想定し、必要な機能や間取りを整理する。</li>
+            <li>写真や図面、寸法など現状を把握できる資料を準備する。</li>
+          </ul>
+          <h2>2. 概算予算と資金計画</h2>
+          <ul>
+            <li>希望する仕様の価格帯を調査し、上限額と予備費を含めた予算枠を設定する。</li>
+            <li>ローンや補助金、減税制度の利用可能性を確認し、返済計画をシミュレーションする。</li>
+            <li>複数社の見積もりを比較し、価格だけでなく提案内容や保証も評価する。</li>
+          </ul>
+          <h2>3. スケジュールづくりと段取り</h2>
+          <ul>
+            <li>工事開始までに必要な準備(仮住まい、家具移動、近隣挨拶など)をリストアップする。</li>
+            <li>工事期間と住まい方(在宅か仮住まいか)を決め、家族の予定とすり合わせる。</li>
+            <li>着工前の最終打ち合わせで仕様・色決め・支払い条件などを確認し、記録に残す。</li>
+          </ul>
+          <p>
+            計画段階で情報を整理しておくことで、工事が始まってからの迷いやトラブルを減らせます。
+            信頼できるパートナーと相談しながら、理想の住まいづくりを着実に進めていきましょう。
+          </p>
+        </article>
+        <aside class="sidebar" aria-labelledby="sidebar-title">
+          <h2 id="sidebar-title">ほかの記事</h2>
+          <ul>
+            <li>
+              <a href="/articles/kitchen-storage-ideas.html">キッチン収納を見直す３つのポイント</a>
+              <p>使いやすいキッチンづくりのための動線と収納改善のヒントです。</p>
+            </li>
+            <li>
+              <a href="/articles/bathroom-renovation-checklist.html">バスルーム改修チェックリスト</a>
+              <p>浴室リフォームで確認したい設備や工程を整理しています。</p>
+            </li>
+            <li>
+              <a href="/articles/energy-saving-remodel-ideas.html">省エネリフォームで光熱費を抑えるコツ</a>
+              <p>断熱と高効率設備で快適性と省エネを両立させるアイデアを紹介します。</p>
+            </li>
+          </ul>
+          <a class="sidebar-more" href="/articles/index.html">記事一覧を見る ↗</a>
+        </aside>
+      </div>
     </main>
     <footer>
       <p>© <span id="year"></span> 直営リフォーム工房</p>
