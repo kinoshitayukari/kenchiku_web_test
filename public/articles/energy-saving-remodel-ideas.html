@@ -35,6 +35,17 @@
       nav.article-nav a:hover {
         text-decoration: underline;
       }
+      .layout {
+        display: grid;
+        gap: 2.5rem;
+        margin-bottom: 3rem;
+      }
+      @media (min-width: 1024px) {
+        .layout {
+          grid-template-columns: minmax(0, 1fr) 280px;
+          align-items: start;
+        }
+      }
       main.container {
         padding-top: 0;
       }
@@ -60,6 +71,48 @@
         color: #6b7280;
         text-align: center;
       }
+      .sidebar {
+        background: #fff;
+        border-radius: 1.25rem;
+        border: 1px solid #e5e7eb;
+        padding: 1.75rem 1.5rem;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      }
+      .sidebar h2 {
+        font-size: 1rem;
+        margin: 0 0 1rem;
+      }
+      .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 1rem;
+      }
+      .sidebar li a {
+        color: #4338ca;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .sidebar li a:hover {
+        text-decoration: underline;
+      }
+      .sidebar li p {
+        margin: 0.35rem 0 0;
+        font-size: 0.85rem;
+        color: #6b7280;
+      }
+      .sidebar-more {
+        display: inline-flex;
+        margin-top: 1.5rem;
+        font-weight: 600;
+        color: #111827;
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+      .sidebar-more:hover {
+        color: #4338ca;
+      }
     </style>
   </head>
   <body>
@@ -70,40 +123,60 @@
       </nav>
     </header>
     <main class="container">
-      <article>
-        <header>
-          <h1>省エネリフォームで光熱費を抑えるコツ</h1>
-          <p class="article-meta">
-            <time datetime="2024-05-02">2024年5月2日</time> ｜ 監修: 直営リフォーム工房 編集部
+      <div class="layout">
+        <article>
+          <header>
+            <h1>省エネリフォームで光熱費を抑えるコツ</h1>
+            <p class="article-meta">
+              <time datetime="2024-05-02">2024年5月2日</time> ｜ 監修: 直営リフォーム工房 編集部
+            </p>
+          </header>
+          <p>
+            光熱費の高騰が続く中、省エネ性能を高めるリフォームは暮らしの快適性を保ちながらコストを抑える有効な手段です。
+            本記事では、断熱・窓・設備機器の３つの観点から実践しやすいアイデアをピックアップしました。
           </p>
-        </header>
-        <p>
-          光熱費の高騰が続く中、省エネ性能を高めるリフォームは暮らしの快適性を保ちながらコストを抑える有効な手段です。
-          本記事では、断熱・窓・設備機器の３つの観点から実践しやすいアイデアをピックアップしました。
-        </p>
-        <h2>1. 断熱性能を高める</h2>
-        <ul>
-          <li>外壁・屋根・床下の断熱材を追加し、夏冬の室温変化を緩やかにする。</li>
-          <li>天井裏の断熱材を見直し、隙間を補修することで冷暖房効率を改善する。</li>
-          <li>室内の熱の出入りが大きい窓まわりから優先して施工計画を立てる。</li>
-        </ul>
-        <h2>2. 開口部の性能を改善する</h2>
-        <ul>
-          <li>内窓の設置やLow-E複層ガラスへの交換で断熱性と遮音性を向上させる。</li>
-          <li>玄関ドアを断熱性能の高いものに交換し、隙間風の軽減と防犯性アップを狙う。</li>
-          <li>外付けブラインドやシェードで日射をコントロールし、冷房効率を高める。</li>
-        </ul>
-        <h2>3. 高効率設備を導入する</h2>
-        <ul>
-          <li>高効率給湯器やハイブリッド給湯器を導入し、給湯にかかるエネルギーを削減する。</li>
-          <li>LED照明や人感センサー付き照明を取り入れて無駄な消費電力を減らす。</li>
-          <li>エネルギー管理システム(HEMS)を活用して、家庭の消費電力量を可視化する。</li>
-        </ul>
-        <p>
-          補助金制度や税制優遇が活用できる場合もあるため、工事内容が決まったら最新情報を確認しましょう。
-          断熱から設備までトータルで見直すことで、年間を通じて快適で省エネな住まいが実現します。
-        </p>
-      </article>
+          <h2>1. 断熱性能を高める</h2>
+          <ul>
+            <li>外壁・屋根・床下の断熱材を追加し、夏冬の室温変化を緩やかにする。</li>
+            <li>天井裏の断熱材を見直し、隙間を補修することで冷暖房効率を改善する。</li>
+            <li>室内の熱の出入りが大きい窓まわりから優先して施工計画を立てる。</li>
+          </ul>
+          <h2>2. 開口部の性能を改善する</h2>
+          <ul>
+            <li>内窓の設置やLow-E複層ガラスへの交換で断熱性と遮音性を向上させる。</li>
+            <li>玄関ドアを断熱性能の高いものに交換し、隙間風の軽減と防犯性アップを狙う。</li>
+            <li>外付けブラインドやシェードで日射をコントロールし、冷房効率を高める。</li>
+          </ul>
+          <h2>3. 高効率設備を導入する</h2>
+          <ul>
+            <li>高効率給湯器やハイブリッド給湯器を導入し、給湯にかかるエネルギーを削減する。</li>
+            <li>LED照明や人感センサー付き照明を取り入れて無駄な消費電力を減らす。</li>
+            <li>エネルギー管理システム(HEMS)を活用して、家庭の消費電力量を可視化する。</li>
+          </ul>
+          <p>
+            補助金制度や税制優遇が活用できる場合もあるため、工事内容が決まったら最新情報を確認しましょう。
+            断熱から設備までトータルで見直すことで、年間を通じて快適で省エネな住まいが実現します。
+          </p>
+        </article>
+        <aside class="sidebar" aria-labelledby="sidebar-title">
+          <h2 id="sidebar-title">ほかの記事</h2>
+          <ul>
+            <li>
+              <a href="/articles/renovation-planning-guide.html">リフォーム計画の基本ガイド</a>
+              <p>予算や工程を整理してスムーズに進めるための手順をまとめています。</p>
+            </li>
+            <li>
+              <a href="/articles/kitchen-storage-ideas.html">キッチン収納を見直す３つのポイント</a>
+              <p>毎日の家事効率を高める収納アイデアを紹介しています。</p>
+            </li>
+            <li>
+              <a href="/articles/bathroom-renovation-checklist.html">バスルーム改修チェックリスト</a>
+              <p>浴室工事で見落としやすい工程や確認項目を網羅しました。</p>
+            </li>
+          </ul>
+          <a class="sidebar-more" href="/articles/index.html">記事一覧を見る ↗</a>
+        </aside>
+      </div>
     </main>
     <footer>
       <p>© <span id="year"></span> 直営リフォーム工房</p>

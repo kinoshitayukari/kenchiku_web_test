@@ -35,6 +35,17 @@
       nav.article-nav a:hover {
         text-decoration: underline;
       }
+      .layout {
+        display: grid;
+        gap: 2.5rem;
+        margin-bottom: 3rem;
+      }
+      @media (min-width: 1024px) {
+        .layout {
+          grid-template-columns: minmax(0, 1fr) 280px;
+          align-items: start;
+        }
+      }
       main.container {
         padding-top: 0;
       }
@@ -60,6 +71,48 @@
         color: #6b7280;
         text-align: center;
       }
+      .sidebar {
+        background: #fff;
+        border-radius: 1.25rem;
+        border: 1px solid #e5e7eb;
+        padding: 1.75rem 1.5rem;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      }
+      .sidebar h2 {
+        font-size: 1rem;
+        margin: 0 0 1rem;
+      }
+      .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 1rem;
+      }
+      .sidebar li a {
+        color: #4338ca;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .sidebar li a:hover {
+        text-decoration: underline;
+      }
+      .sidebar li p {
+        margin: 0.35rem 0 0;
+        font-size: 0.85rem;
+        color: #6b7280;
+      }
+      .sidebar-more {
+        display: inline-flex;
+        margin-top: 1.5rem;
+        font-weight: 600;
+        color: #111827;
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+      .sidebar-more:hover {
+        color: #4338ca;
+      }
     </style>
   </head>
   <body>
@@ -70,46 +123,66 @@
       </nav>
     </header>
     <main class="container">
-      <article>
-        <header>
-          <h1>バスルーム改修チェックリスト</h1>
-          <p class="article-meta">
-            <time datetime="2024-05-05">2024年5月5日</time> ｜ 監修: 直営リフォーム工房 編集部
+      <div class="layout">
+        <article>
+          <header>
+            <h1>バスルーム改修チェックリスト</h1>
+            <p class="article-meta">
+              <time datetime="2024-05-05">2024年5月5日</time> ｜ 監修: 直営リフォーム工房 編集部
+            </p>
+          </header>
+          <p>
+            浴室は毎日使用する場所だからこそ、リフォームでは細かなポイントまで抜かりなく確認しておきたいところです。
+            本記事では、計画段階から工事後のチェックまで、抜け漏れを防ぐためのチェックリストを項目別に整理しました。
           </p>
-        </header>
-        <p>
-          浴室は毎日使用する場所だからこそ、リフォームでは細かなポイントまで抜かりなく確認しておきたいところです。
-          本記事では、計画段階から工事後のチェックまで、抜け漏れを防ぐためのチェックリストを項目別に整理しました。
-        </p>
-        <h2>1. 計画段階のチェック</h2>
-        <ul>
-          <li>既存の浴室サイズと梁・配管位置を採寸し、対応可能なユニットバスのサイズを把握する。</li>
-          <li>家族構成や将来のライフスタイルを踏まえて、浴槽形状・手すり・段差解消など必要な仕様を決める。</li>
-          <li>換気方式や暖房乾燥機の有無など、快適性に関わるオプションを検討する。</li>
-        </ul>
-        <h2>2. 見積・発注時のチェック</h2>
-        <ul>
-          <li>既存撤去・廃材処分・養生・電気工事などが一式に含まれているか内訳を確認する。</li>
-          <li>ユニットバス本体の品番・カラー・アクセサリーが希望通りか、見積書や仕様書でチェックする。</li>
-          <li>工期と入浴不可期間を家族と共有し、代替入浴手段が必要かどうか相談する。</li>
-        </ul>
-        <h2>3. 工事中のチェック</h2>
-        <ul>
-          <li>解体時に配管・下地の腐食が見つかった場合の対応方針や追加費用について確認する。</li>
-          <li>新しい配管・電気配線の取り回しがメーカー施工基準に沿っているか施工担当者と共有する。</li>
-          <li>設置後に給排水漏れや電気接続のテストを実施しているか確認する。</li>
-        </ul>
-        <h2>4. 引き渡し時のチェック</h2>
-        <ul>
-          <li>床・壁・浴槽の傷や汚れ、コーキングの仕上がりを目視で確認する。</li>
-          <li>換気扇、暖房乾燥機、照明、ミラー曇り止めなど設備の動作確認を行う。</li>
-          <li>保証書・取扱説明書・メンテナンス方法について説明を受け、保管する。</li>
-        </ul>
-        <p>
-          計画から引き渡しまで、チェックポイントを共有しておくことで、工事の品質と満足度を高めることができます。
-          気になる点は遠慮なく施工担当者に相談し、快適なバスルームづくりを進めていきましょう。
-        </p>
-      </article>
+          <h2>1. 計画段階のチェック</h2>
+          <ul>
+            <li>既存の浴室サイズと梁・配管位置を採寸し、対応可能なユニットバスのサイズを把握する。</li>
+            <li>家族構成や将来のライフスタイルを踏まえて、浴槽形状・手すり・段差解消など必要な仕様を決める。</li>
+            <li>換気方式や暖房乾燥機の有無など、快適性に関わるオプションを検討する。</li>
+          </ul>
+          <h2>2. 見積・発注時のチェック</h2>
+          <ul>
+            <li>既存撤去・廃材処分・養生・電気工事などが一式に含まれているか内訳を確認する。</li>
+            <li>ユニットバス本体の品番・カラー・アクセサリーが希望通りか、見積書や仕様書でチェックする。</li>
+            <li>工期と入浴不可期間を家族と共有し、代替入浴手段が必要かどうか相談する。</li>
+          </ul>
+          <h2>3. 工事中のチェック</h2>
+          <ul>
+            <li>解体時に配管・下地の腐食が見つかった場合の対応方針や追加費用について確認する。</li>
+            <li>新しい配管・電気配線の取り回しがメーカー施工基準に沿っているか施工担当者と共有する。</li>
+            <li>設置後に給排水漏れや電気接続のテストを実施しているか確認する。</li>
+          </ul>
+          <h2>4. 引き渡し時のチェック</h2>
+          <ul>
+            <li>床・壁・浴槽の傷や汚れ、コーキングの仕上がりを目視で確認する。</li>
+            <li>換気扇、暖房乾燥機、照明、ミラー曇り止めなど設備の動作確認を行う。</li>
+            <li>保証書・取扱説明書・メンテナンス方法について説明を受け、保管する。</li>
+          </ul>
+          <p>
+            計画から引き渡しまで、チェックポイントを共有しておくことで、工事の品質と満足度を高めることができます。
+            気になる点は遠慮なく施工担当者に相談し、快適なバスルームづくりを進めていきましょう。
+          </p>
+        </article>
+        <aside class="sidebar" aria-labelledby="sidebar-title">
+          <h2 id="sidebar-title">ほかの記事</h2>
+          <ul>
+            <li>
+              <a href="/articles/renovation-planning-guide.html">リフォーム計画の基本ガイド</a>
+              <p>初期計画の立て方やスケジュール設計のコツを紹介しています。</p>
+            </li>
+            <li>
+              <a href="/articles/kitchen-storage-ideas.html">キッチン収納を見直す３つのポイント</a>
+              <p>動線づくりと収納改善で使いやすいキッチンを実現するヒントです。</p>
+            </li>
+            <li>
+              <a href="/articles/energy-saving-remodel-ideas.html">省エネリフォームで光熱費を抑えるコツ</a>
+              <p>断熱や高効率設備の選び方で家全体の快適性を高める方法を解説します。</p>
+            </li>
+          </ul>
+          <a class="sidebar-more" href="/articles/index.html">記事一覧を見る ↗</a>
+        </aside>
+      </div>
     </main>
     <footer>
       <p>© <span id="year"></span> 直営リフォーム工房</p>

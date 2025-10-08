@@ -35,6 +35,17 @@
       nav.article-nav a:hover {
         text-decoration: underline;
       }
+      .layout {
+        display: grid;
+        gap: 2.5rem;
+        margin-bottom: 3rem;
+      }
+      @media (min-width: 1024px) {
+        .layout {
+          grid-template-columns: minmax(0, 1fr) 280px;
+          align-items: start;
+        }
+      }
       main.container {
         padding-top: 0;
       }
@@ -60,6 +71,48 @@
         color: #6b7280;
         text-align: center;
       }
+      .sidebar {
+        background: #fff;
+        border-radius: 1.25rem;
+        border: 1px solid #e5e7eb;
+        padding: 1.75rem 1.5rem;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      }
+      .sidebar h2 {
+        font-size: 1rem;
+        margin: 0 0 1rem;
+      }
+      .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 1rem;
+      }
+      .sidebar li a {
+        color: #4338ca;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .sidebar li a:hover {
+        text-decoration: underline;
+      }
+      .sidebar li p {
+        margin: 0.35rem 0 0;
+        font-size: 0.85rem;
+        color: #6b7280;
+      }
+      .sidebar-more {
+        display: inline-flex;
+        margin-top: 1.5rem;
+        font-weight: 600;
+        color: #111827;
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+      .sidebar-more:hover {
+        color: #4338ca;
+      }
     </style>
   </head>
   <body>
@@ -70,40 +123,60 @@
       </nav>
     </header>
     <main class="container">
-      <article>
-        <header>
-          <h1>キッチン収納を見直す３つのポイント</h1>
-          <p class="article-meta">
-            <time datetime="2024-05-08">2024年5月8日</time> ｜ 監修: 直営リフォーム工房 編集部
+      <div class="layout">
+        <article>
+          <header>
+            <h1>キッチン収納を見直す３つのポイント</h1>
+            <p class="article-meta">
+              <time datetime="2024-05-08">2024年5月8日</time> ｜ 監修: 直営リフォーム工房 編集部
+            </p>
+          </header>
+          <p>
+            調理スペースが狭い、必要な道具が見つからないといったお悩みは、収納の仕組みを整えることで解消できます。
+            キッチンリフォーム時に意識したい３つのポイントを押さえて、日々の料理をもっとスムーズにしましょう。
           </p>
-        </header>
-        <p>
-          調理スペースが狭い、必要な道具が見つからないといったお悩みは、収納の仕組みを整えることで解消できます。
-          キッチンリフォーム時に意識したい３つのポイントを押さえて、日々の料理をもっとスムーズにしましょう。
-        </p>
-        <h2>1. 作業動線を優先したレイアウト</h2>
-        <ul>
-          <li>冷蔵庫・シンク・コンロの三角形動線を意識し、移動距離を短縮する配置にする。</li>
-          <li>よく使う調理器具は腰から目線の高さに集約し、取り出しやすさを優先する。</li>
-          <li>パントリーや背面収納の位置を見直し、調理中の振り返り動作を減らす。</li>
-        </ul>
-        <h2>2. 収納量と仕分けの仕組みづくり</h2>
-        <ul>
-          <li>深型引き出しには仕切りやスタンドを組み合わせ、鍋やフライパンを立てて収納する。</li>
-          <li>調味料や乾物はボックスで分類し、ラベルを貼って在庫を把握しやすくする。</li>
-          <li>吊戸棚には昇降式ラックやステップ台を用意し、使い勝手を高める。</li>
-        </ul>
-        <h2>3. 清掃性とメンテナンス性の向上</h2>
-        <ul>
-          <li>ワークトップやキッチンパネルは汚れが落としやすい素材を選び、日々の掃除を短縮する。</li>
-          <li>換気扇は整流板付きや自動洗浄タイプなど、お手入れが簡単な機種を検討する。</li>
-          <li>水まわりのコーキングや床材は防水・防汚性能の高いものを採用する。</li>
-        </ul>
-        <p>
-          収納の課題はライフスタイルによって異なるため、家族の使い方をヒアリングしながら計画を進めることが大切です。
-          リフォームを機に、モノの定位置を決めて整理整頓しやすいキッチンを目指しましょう。
-        </p>
-      </article>
+          <h2>1. 作業動線を優先したレイアウト</h2>
+          <ul>
+            <li>冷蔵庫・シンク・コンロの三角形動線を意識し、移動距離を短縮する配置にする。</li>
+            <li>よく使う調理器具は腰から目線の高さに集約し、取り出しやすさを優先する。</li>
+            <li>パントリーや背面収納の位置を見直し、調理中の振り返り動作を減らす。</li>
+          </ul>
+          <h2>2. 収納量と仕分けの仕組みづくり</h2>
+          <ul>
+            <li>深型引き出しには仕切りやスタンドを組み合わせ、鍋やフライパンを立てて収納する。</li>
+            <li>調味料や乾物はボックスで分類し、ラベルを貼って在庫を把握しやすくする。</li>
+            <li>吊戸棚には昇降式ラックやステップ台を用意し、使い勝手を高める。</li>
+          </ul>
+          <h2>3. 清掃性とメンテナンス性の向上</h2>
+          <ul>
+            <li>ワークトップやキッチンパネルは汚れが落としやすい素材を選び、日々の掃除を短縮する。</li>
+            <li>換気扇は整流板付きや自動洗浄タイプなど、お手入れが簡単な機種を検討する。</li>
+            <li>水まわりのコーキングや床材は防水・防汚性能の高いものを採用する。</li>
+          </ul>
+          <p>
+            収納の課題はライフスタイルによって異なるため、家族の使い方をヒアリングしながら計画を進めることが大切です。
+            リフォームを機に、モノの定位置を決めて整理整頓しやすいキッチンを目指しましょう。
+          </p>
+        </article>
+        <aside class="sidebar" aria-labelledby="sidebar-title">
+          <h2 id="sidebar-title">ほかの記事</h2>
+          <ul>
+            <li>
+              <a href="/articles/renovation-planning-guide.html">リフォーム計画の基本ガイド</a>
+              <p>予算やスケジュールの立て方など、工事準備の基礎を解説しています。</p>
+            </li>
+            <li>
+              <a href="/articles/bathroom-renovation-checklist.html">バスルーム改修チェックリスト</a>
+              <p>設備選びや工程管理に役立つ確認項目をまとめています。</p>
+            </li>
+            <li>
+              <a href="/articles/energy-saving-remodel-ideas.html">省エネリフォームで光熱費を抑えるコツ</a>
+              <p>断熱と高効率設備で快適さと省エネを両立させるヒントをご紹介。</p>
+            </li>
+          </ul>
+          <a class="sidebar-more" href="/articles/index.html">記事一覧を見る ↗</a>
+        </aside>
+      </div>
     </main>
     <footer>
       <p>© <span id="year"></span> 直営リフォーム工房</p>

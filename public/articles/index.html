@@ -35,10 +35,21 @@
       nav.article-nav a:hover {
         text-decoration: underline;
       }
+      .layout {
+        display: grid;
+        gap: 2.5rem;
+        margin: 2rem 0 3rem;
+      }
+      @media (min-width: 1024px) {
+        .layout {
+          grid-template-columns: minmax(0, 1fr) 280px;
+          align-items: start;
+        }
+      }
       ul.article-list {
         list-style: none;
         padding: 0;
-        margin: 2rem 0 3rem;
+        margin: 0;
         display: grid;
         gap: 1.5rem;
       }
@@ -70,6 +81,48 @@
         color: #6b7280;
         text-align: center;
       }
+      .sidebar {
+        background: #fff;
+        border-radius: 1.25rem;
+        border: 1px solid #e5e7eb;
+        padding: 1.75rem 1.5rem;
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      }
+      .sidebar h2 {
+        font-size: 1rem;
+        margin: 0 0 1rem;
+      }
+      .sidebar ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 1rem;
+      }
+      .sidebar li a {
+        color: #4338ca;
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .sidebar li a:hover {
+        text-decoration: underline;
+      }
+      .sidebar li p {
+        margin: 0.35rem 0 0;
+        font-size: 0.85rem;
+        color: #6b7280;
+      }
+      .sidebar-more {
+        display: inline-flex;
+        margin-top: 1.5rem;
+        font-weight: 600;
+        color: #111827;
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+      .sidebar-more:hover {
+        color: #4338ca;
+      }
     </style>
   </head>
   <body>
@@ -86,52 +139,72 @@
       </div>
     </header>
     <main class="container">
-      <ul class="article-list">
-        <li>
-          <a href="/articles/renovation-planning-guide.html">
-            <h2>リフォーム計画の基本ガイド</h2>
-            <p class="article-meta">
-              <time datetime="2024-05-12">2024年5月12日公開</time>
-            </p>
-            <p>
-              予算やスケジュールの立て方など、工事前に押さえておきたい基礎を解説します。
-            </p>
-          </a>
-        </li>
-        <li>
-          <a href="/articles/kitchen-storage-ideas.html">
-            <h2>キッチン収納を見直す３つのポイント</h2>
-            <p class="article-meta">
-              <time datetime="2024-05-08">2024年5月8日公開</time>
-            </p>
-            <p>
-              毎日の料理をスムーズにするための収納改善のコツを紹介します。
-            </p>
-          </a>
-        </li>
-        <li>
-          <a href="/articles/bathroom-renovation-checklist.html">
-            <h2>バスルーム改修チェックリスト</h2>
-            <p class="article-meta">
-              <time datetime="2024-05-05">2024年5月5日公開</time>
-            </p>
-            <p>
-              浴室リフォームで確認したい設備や工程をチェックリスト形式でまとめました。
-            </p>
-          </a>
-        </li>
-        <li>
-          <a href="/articles/energy-saving-remodel-ideas.html">
-            <h2>省エネリフォームで光熱費を抑えるコツ</h2>
-            <p class="article-meta">
-              <time datetime="2024-05-02">2024年5月2日公開</time>
-            </p>
-            <p>
-              断熱や高効率設備で快適性と省エネを両立させるポイントを紹介します。
-            </p>
-          </a>
-        </li>
-      </ul>
+      <div class="layout">
+        <ul class="article-list">
+          <li>
+            <a href="/articles/renovation-planning-guide.html">
+              <h2>リフォーム計画の基本ガイド</h2>
+              <p class="article-meta">
+                <time datetime="2024-05-12">2024年5月12日公開</time>
+              </p>
+              <p>
+                予算やスケジュールの立て方など、工事前に押さえておきたい基礎を解説します。
+              </p>
+            </a>
+          </li>
+          <li>
+            <a href="/articles/kitchen-storage-ideas.html">
+              <h2>キッチン収納を見直す３つのポイント</h2>
+              <p class="article-meta">
+                <time datetime="2024-05-08">2024年5月8日公開</time>
+              </p>
+              <p>
+                毎日の料理をスムーズにするための収納改善のコツを紹介します。
+              </p>
+            </a>
+          </li>
+          <li>
+            <a href="/articles/bathroom-renovation-checklist.html">
+              <h2>バスルーム改修チェックリスト</h2>
+              <p class="article-meta">
+                <time datetime="2024-05-05">2024年5月5日公開</time>
+              </p>
+              <p>
+                浴室リフォームで確認したい設備や工程をチェックリスト形式でまとめました。
+              </p>
+            </a>
+          </li>
+          <li>
+            <a href="/articles/energy-saving-remodel-ideas.html">
+              <h2>省エネリフォームで光熱費を抑えるコツ</h2>
+              <p class="article-meta">
+                <time datetime="2024-05-02">2024年5月2日公開</time>
+              </p>
+              <p>
+                断熱や高効率設備で快適性と省エネを両立させるポイントを紹介します。
+              </p>
+            </a>
+          </li>
+        </ul>
+        <aside class="sidebar" aria-labelledby="sidebar-title">
+          <h2 id="sidebar-title">人気の読み物</h2>
+          <ul>
+            <li>
+              <a href="/articles/renovation-planning-guide.html">リフォーム計画の基本ガイド</a>
+              <p>計画の進め方や予算づくりのコツを最初に押さえましょう。</p>
+            </li>
+            <li>
+              <a href="/articles/energy-saving-remodel-ideas.html">省エネリフォームで光熱費を抑えるコツ</a>
+              <p>断熱・窓・設備の改善で快適さと節約を両立させるヒントです。</p>
+            </li>
+            <li>
+              <a href="/articles/kitchen-storage-ideas.html">キッチン収納を見直す３つのポイント</a>
+              <p>収納の工夫で毎日の家事効率を高める実践的なアイデアを掲載。</p>
+            </li>
+          </ul>
+          <a class="sidebar-more" href="/">トップページに戻る ↗</a>
+        </aside>
+      </div>
     </main>
     <footer>
       <p>© <span id="year"></span> 直営リフォーム工房</p>
