@@ -47,6 +47,29 @@ export default function ReformLandingJP() {
     </tr>
   );
 
+  const articleLinks = [
+    {
+      title: "リフォーム計画の基本ガイド",
+      href: "/articles/renovation-planning-guide.html",
+      summary: "予算やスケジュールの立て方など、工事前に押さえておきたい基礎を解説します。",
+    },
+    {
+      title: "キッチン収納を見直す３つのポイント",
+      href: "/articles/kitchen-storage-ideas.html",
+      summary: "毎日の料理をスムーズにするための収納改善のコツを紹介します。",
+    },
+    {
+      title: "バスルーム改修チェックリスト",
+      href: "/articles/bathroom-renovation-checklist.html",
+      summary: "浴室リフォームで確認したい設備や工程をチェックリスト形式でまとめました。",
+    },
+    {
+      title: "省エネリフォームで光熱費を抑えるコツ",
+      href: "/articles/energy-saving-remodel-ideas.html",
+      summary: "断熱や高効率設備で快適性と省エネを両立させるポイントを紹介します。",
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-50 via-white to-white text-gray-900">
       <header className="sticky top-0 z-40 bg-white/80 backdrop-blur border-b">
@@ -612,7 +635,28 @@ export default function ReformLandingJP() {
               ※実運用ではプライバシーポリシー/特商法表記/会社情報の掲載を推奨します。
             </p>
           </div>
-          <div className="bg-white border rounded-2xl shadow-sm p-3 sm:p-6">
+          <div className="bg-white border rounded-2xl shadow-sm p-3 sm:p-6 space-y-6">
+            <div>
+              <h4 className="text-lg font-semibold">最新の記事</h4>
+              <p className="text-sm text-gray-600 mt-1">
+                リフォームをご検討中の方に役立つ情報をまとめました。気になるテーマをご覧ください。
+              </p>
+              <ul className="mt-4 space-y-4">
+                {articleLinks.map((article) => (
+                  <li key={article.href} className="group">
+                    <a
+                      href={article.href}
+                      className="text-indigo-700 font-semibold group-hover:text-indigo-500"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {article.title}
+                    </a>
+                    <p className="text-sm text-gray-600 mt-1">{article.summary}</p>
+                  </li>
+                ))}
+              </ul>
+            </div>
             <div className="relative">
               <iframe
                 title="お問い合わせフォーム"
