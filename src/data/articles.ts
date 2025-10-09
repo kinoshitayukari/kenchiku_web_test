@@ -7,6 +7,13 @@ export type ArticleMeta = {
 
 export const articleMetas: ArticleMeta[] = [
   {
+    slug: "renovation-estimate-complete-guide.html",
+    title: "【40代主婦向け】リフォーム見積もり完全ガイド",
+    summary:
+      "リフォーム見積もりの基礎から費用相場、業者選び、資金計画までを丁寧に解説した決定版ガイドです。",
+    publishedAt: "2024-05-20",
+  },
+  {
     slug: "renovation-planning-guide.html",
     title: "リフォーム計画の基本ガイド",
     summary:
