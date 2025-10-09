@@ -158,21 +158,15 @@
             断熱から設備までトータルで見直すことで、年間を通じて快適で省エネな住まいが実現します。
           </p>
         </article>
-        <aside class="sidebar" aria-labelledby="sidebar-title">
+        <aside
+          class="sidebar"
+          aria-labelledby="sidebar-title"
+          data-article-sidebar
+          data-article-sidebar-limit="5"
+        >
           <h2 id="sidebar-title">ほかの記事</h2>
-          <ul>
-            <li>
-              <a href="/articles/renovation-estimate-complete-guide.html">【40代主婦向け】リフォーム見積もり完全ガイド</a>
-              <p>費用相場と見積書の見方を押さえて賢く進めるためのガイドです。</p>
-            </li>
-            <li>
-              <a href="/articles/renovation-planning-guide.html">リフォーム計画の基本ガイド</a>
-              <p>予算や工程を整理してスムーズに進めるための手順をまとめています。</p>
-            </li>
-            <li>
-              <a href="/articles/kitchen-storage-ideas.html">キッチン収納を見直す３つのポイント</a>
-              <p>毎日の家事効率を高める収納アイデアを紹介しています。</p>
-            </li>
+          <ul data-article-sidebar-list>
+            <li data-article-sidebar-status>記事一覧を読み込んでいます…</li>
           </ul>
           <a class="sidebar-more" href="/articles/index.html">記事一覧を見る ↗</a>
         </aside>
@@ -184,5 +178,6 @@
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
+    <script type="module" src="/articles/article-sidebar.js"></script>
   </body>
 </html>

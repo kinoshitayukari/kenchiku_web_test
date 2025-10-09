@@ -158,21 +158,15 @@
             リフォームを機に、モノの定位置を決めて整理整頓しやすいキッチンを目指しましょう。
           </p>
         </article>
-        <aside class="sidebar" aria-labelledby="sidebar-title">
+        <aside
+          class="sidebar"
+          aria-labelledby="sidebar-title"
+          data-article-sidebar
+          data-article-sidebar-limit="5"
+        >
           <h2 id="sidebar-title">ほかの記事</h2>
-          <ul>
-            <li>
-              <a href="/articles/renovation-estimate-complete-guide.html">【40代主婦向け】リフォーム見積もり完全ガイド</a>
-              <p>費用感のつかみ方や業者選びのコツを網羅したロングリードです。</p>
-            </li>
-            <li>
-              <a href="/articles/renovation-planning-guide.html">リフォーム計画の基本ガイド</a>
-              <p>予算やスケジュールの立て方など、工事準備の基礎を解説しています。</p>
-            </li>
-            <li>
-              <a href="/articles/energy-saving-remodel-ideas.html">省エネリフォームで光熱費を抑えるコツ</a>
-              <p>断熱と高効率設備で快適さと省エネを両立させるヒントをご紹介。</p>
-            </li>
+          <ul data-article-sidebar-list>
+            <li data-article-sidebar-status>記事一覧を読み込んでいます…</li>
           </ul>
           <a class="sidebar-more" href="/articles/index.html">記事一覧を見る ↗</a>
         </aside>
@@ -184,5 +178,6 @@
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
+    <script type="module" src="/articles/article-sidebar.js"></script>
   </body>
 </html>

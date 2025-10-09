@@ -113,6 +113,9 @@ export default function ReformLandingJP() {
             <a href="#faq" className="hover:text-indigo-600">
               FAQ
             </a>
+            <a href="/articles/index.html" className="hover:text-indigo-600">
+              記事コンテンツ
+            </a>
           </nav>
           <div className="flex items-center gap-3">
             <a
@@ -130,6 +133,34 @@ export default function ReformLandingJP() {
           </div>
         </div>
       </header>
+
+      <div className="bg-indigo-600/5 border-b border-indigo-100/70">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col gap-2 md:flex-row md:items-center md:gap-4">
+          <span className="text-xs font-semibold uppercase tracking-widest text-indigo-700">
+            記事コンテンツ
+          </span>
+          <div className="flex flex-wrap gap-2 text-sm">
+            {featuredArticles.map((article) => (
+              <a
+                key={article.href}
+                href={article.href}
+                className="inline-flex items-center gap-1 rounded-full border border-indigo-200 bg-white px-3 py-1 text-indigo-700 hover:border-indigo-400 hover:text-indigo-900"
+              >
+                <span className="text-xs text-indigo-400">↗</span>
+                <span>{article.title}</span>
+              </a>
+            ))}
+          </div>
+          <div className="md:ml-auto">
+            <a
+              href="/articles/index.html"
+              className="inline-flex items-center rounded-full bg-indigo-600 px-3 py-1 text-xs font-semibold text-white shadow hover:bg-indigo-500"
+            >
+              すべての記事を見る
+            </a>
+          </div>
+        </div>
+      </div>
 
       <section id="top" className="relative overflow-hidden">
         <div
@@ -595,6 +626,15 @@ export default function ReformLandingJP() {
                 <p className="mt-2 text-sm text-gray-700">{faq.a}</p>
               </details>
             ))}
+          </div>
+          <div className="mt-8 text-center">
+            <a
+              href="/articles/index.html"
+              className="inline-flex items-center gap-2 rounded-full border border-indigo-200 bg-white px-5 py-2 text-sm font-semibold text-indigo-700 shadow-sm hover:border-indigo-400 hover:text-indigo-900"
+            >
+              記事コンテンツ一覧を見る
+              <span aria-hidden="true">↗</span>
+            </a>
           </div>
         </div>
       </section>

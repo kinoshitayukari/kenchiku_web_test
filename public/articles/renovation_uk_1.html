@@ -812,13 +812,24 @@
           </p>
 
         </article>
-
+        <aside
+          class="sidebar"
+          aria-labelledby="sidebar-title"
+          data-article-sidebar
+          data-article-sidebar-limit="5"
+        >
+          <h2 id="sidebar-title">記事一覧</h2>
+          <ul data-article-sidebar-list>
+            <li data-article-sidebar-status>記事一覧を読み込んでいます…</li>
+          </ul>
+        </aside>
 
       </div>
     </main>
     <footer>
       <p>© <span id="year"></span> 直営リフォーム工房</p>
     </footer>
+<script type="module" src="/articles/article-sidebar.js"></script>
 <script>
   // 年表示
   document.getElementById("year").textContent = new Date().getFullYear();

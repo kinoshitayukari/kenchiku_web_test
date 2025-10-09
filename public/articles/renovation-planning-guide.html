@@ -158,21 +158,15 @@
             信頼できるパートナーと相談しながら、理想の住まいづくりを着実に進めていきましょう。
           </p>
         </article>
-        <aside class="sidebar" aria-labelledby="sidebar-title">
+        <aside
+          class="sidebar"
+          aria-labelledby="sidebar-title"
+          data-article-sidebar
+          data-article-sidebar-limit="5"
+        >
           <h2 id="sidebar-title">ほかの記事</h2>
-          <ul>
-            <li>
-              <a href="/articles/renovation-estimate-complete-guide.html">【40代主婦向け】リフォーム見積もり完全ガイド</a>
-              <p>費用相場や見積書の見方をまとめた安心のための読み物です。</p>
-            </li>
-            <li>
-              <a href="/articles/kitchen-storage-ideas.html">キッチン収納を見直す３つのポイント</a>
-              <p>使いやすいキッチンづくりのための動線と収納改善のヒントです。</p>
-            </li>
-            <li>
-              <a href="/articles/energy-saving-remodel-ideas.html">省エネリフォームで光熱費を抑えるコツ</a>
-              <p>断熱と高効率設備で快適性と省エネを両立させるアイデアを紹介します。</p>
-            </li>
+          <ul data-article-sidebar-list>
+            <li data-article-sidebar-status>記事一覧を読み込んでいます…</li>
           </ul>
           <a class="sidebar-more" href="/articles/index.html">記事一覧を見る ↗</a>
         </aside>
@@ -184,5 +178,6 @@
     <script>
       document.getElementById("year").textContent = new Date().getFullYear();
     </script>
+    <script type="module" src="/articles/article-sidebar.js"></script>
   </body>
 </html>
