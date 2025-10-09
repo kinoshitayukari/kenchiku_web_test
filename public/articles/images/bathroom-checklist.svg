@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+  <defs>
+    <linearGradient id="bathGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#cffafe" />
+      <stop offset="100%" stop-color="#a5f3fc" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="600" fill="url(#bathGradient)" rx="48" />
+  <g fill="none" stroke="#0f172a" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="220" y="160" width="460" height="280" rx="36" />
+    <path d="M260 360h380" />
+    <path d="M260 220h120l30 40h210" />
+    <circle cx="300" cy="320" r="22" />
+    <path d="M300 320l24 24 46-46" />
+  </g>
+</svg>
