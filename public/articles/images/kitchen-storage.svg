@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+  <defs>
+    <linearGradient id="kitchenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef3c7" />
+      <stop offset="100%" stop-color="#fde68a" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="600" rx="48" fill="url(#kitchenGradient)" />
+  <g fill="none" stroke="#92400e" stroke-width="12" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="180" y="150" width="540" height="300" rx="24" />
+    <path d="M180 240h540M180 330h540" />
+    <rect x="240" y="190" width="120" height="70" rx="12" />
+    <rect x="420" y="190" width="120" height="70" rx="12" />
+    <rect x="600" y="190" width="80" height="70" rx="12" />
+    <circle cx="260" cy="360" r="24" />
+    <circle cx="640" cy="360" r="24" />
+  </g>
+</svg>

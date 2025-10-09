@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="600" viewBox="0 0 900 600">
+  <defs>
+    <linearGradient id="energyGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#dcfce7" />
+      <stop offset="100%" stop-color="#bbf7d0" />
+    </linearGradient>
+  </defs>
+  <rect width="900" height="600" rx="48" fill="url(#energyGradient)" />
+  <g fill="none" stroke="#065f46" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M450 130l90 170h-70l50 170-120-190h80z" fill="#10b981" stroke="none" opacity="0.85" />
+    <circle cx="280" cy="360" r="90" />
+    <path d="M280 270v90l60 60" />
+    <path d="M620 320c40 0 80 36 80 90 0 54-40 90-80 90-38 0-70-32-78-72" />
+  </g>
+</svg>
