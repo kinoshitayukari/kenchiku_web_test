@@ -60,20 +60,34 @@
         padding: 1.5rem;
         box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
       }
-      ul.article-list li a {
+      .article-card {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
         color: #111827;
         text-decoration: none;
+        height: 100%;
       }
-      ul.article-list li a h2 {
-        margin-bottom: 0.5rem;
+      .article-card h2 {
+        margin: 0;
+        font-size: 1.25rem;
       }
-      ul.article-list li a:hover h2 {
+      .article-card:hover h2 {
         color: #4338ca;
       }
-      .article-meta {
-        font-size: 0.85rem;
-        color: #6b7280;
-        margin-bottom: 0.75rem;
+      .article-thumb {
+        width: 100%;
+        border-radius: 0.75rem;
+        background: linear-gradient(135deg, #eef2ff, #e0f2fe);
+        aspect-ratio: 16 / 9;
+        object-fit: cover;
+        box-shadow: inset 0 0 0 1px rgba(67, 56, 202, 0.08);
+      }
+      .article-card p {
+        margin: 0;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: #4b5563;
       }
       footer {
         padding: 2rem 1rem 3rem;
@@ -142,69 +156,185 @@
       <div class="layout">
         <ul class="article-list">
           <li>
-            <a href="/articles/renovation_uk_1.html">
-              <h2>英国の未来を左右する？リフォームUKの動向とビジネスへの影響</h2>
-              <p class="article-meta">
-                <time datetime="2024-06-01">2024年6月1日公開</time>
-              </p>
-              <p>
-                英国の新興政党「リフォームUK」の政策が経済やビジネスに与えるメリットとリスク、備えるためのポイントをまとめました。
-              </p>
+            <a href="/articles/kitchen_renovation_1.html" class="article-card">
+              <h2>後悔しないキッチンリフォーム！費用相場と成功のポイントを徹底解説</h2>
+              <img src="images_kitchen_renovation_1/タイトル（H1）_1.png" alt="後悔しないキッチンリフォーム！費用相場と成功のポイントを徹底解説" class="article-thumb" loading="lazy" onerror="this.onerror=null;this.src='images_kitchen_renovation_1/images_kitchen_renovation_1/タイトル（H1）_1.png';" />
+              <p>キッチンリフォームを検討中のあなたへ。後悔しない理想のキッチンを実現するための費用相場、成功のポイント、キッチンの選び方、リフォーム会社の選び方まで徹底解説します。</p>
             </a>
           </li>
           <li>
-            <a href="/articles/renovation-estimate-complete-guide.html">
-              <h2>【40代主婦向け】リフォーム見積もり完全ガイド</h2>
-              <p class="article-meta">
-                <time datetime="2024-05-20">2024年5月20日公開</time>
-              </p>
-              <p>
-                見積もりの読み解き方から費用相場、業者選び、資金計画まで不安を解消する総合ガイドです。
-              </p>
+            <a href="/articles/reform_osaka_1.html" class="article-card">
+              <h2>大阪で理想のキッチンリフォーム！失敗しない業者選びと費用ガイド</h2>
+              <img src="images_reform_osaka_1/タイトル（H1）_1.png" alt="大阪で理想のキッチンリフォーム！失敗しない業者選びと費用ガイド" class="article-thumb" loading="lazy" onerror="this.onerror=null;this.src='images_reform_osaka_1/images_reform_osaka_1/タイトル（H1）_1.png';" />
+              <p>大阪でキッチンリフォームを成功させるための完全ガイド。信頼できる業者の選び方から費用相場、補助金情報まで詳しく解説します。</p>
             </a>
           </li>
           <li>
-            <a href="/articles/renovation-planning-guide.html">
-              <h2>リフォーム計画の基本ガイド</h2>
-              <p class="article-meta">
-                <time datetime="2024-05-12">2024年5月12日公開</time>
-              </p>
-              <p>
-                目的整理から予算・スケジュールの立て方、依頼先選定まで押さえておきたいポイントをコンパクトに整理しました。
-              </p>
+            <a href="/articles/reform_sanko_service_1.html" class="article-card">
+              <h2>リフォーム三光サービスで洋服お直し！忙しいあなたも安心の理由</h2>
+              <img src="images_reform_sanko_service_1/タイトル（H1）_1.png" alt="リフォーム三光サービスで洋服お直し！忙しいあなたも安心の理由" class="article-thumb" loading="lazy" onerror="this.onerror=null;this.src='images_reform_sanko_service_1/images_reform_sanko_service_1/タイトル（H1）_1.png';" />
+              <p>お気に入りの洋服を蘇らせる「リフォーム三光サービス」。忙しいあなたでも安心して利用できる理由を、豊富なサービス内容や熟練の技術、便利な利用方法から徹底解説します。</p>
             </a>
           </li>
           <li>
-            <a href="/articles/kitchen-storage-ideas.html">
-              <h2>キッチン収納を見直す３つのポイント</h2>
-              <p class="article-meta">
-                <time datetime="2024-05-08">2024年5月8日公開</time>
-              </p>
-              <p>
-                動線づくりや収納の工夫など、使いやすさを高めるための実践アイデアを紹介します。
-              </p>
+            <a href="/articles/reform_tatami_1.html" class="article-card">
+              <h2>畳リフォームで快適な和室へ！安全・掃除楽々を実現する選び方</h2>
+              <img src="images_reform_tatami_1/タイトル（H1）_1.png" alt="畳リフォームで快適な和室へ！安全・掃除楽々を実現する選び方" class="article-thumb" loading="lazy" onerror="this.onerror=null;this.src='images_reform_tatami_1/images_reform_tatami_1/タイトル（H1）_1.png';" />
+              <p>畳リフォームの種類や費用、業者の選び方を徹底解説。安全で掃除がしやすく、快適な和室を実現するためのポイントを紹介します。</p>
             </a>
           </li>
           <li>
-            <a href="/articles/bathroom-renovation-checklist.html">
-              <h2>バスルーム改修チェックリスト</h2>
-              <p class="article-meta">
-                <time datetime="2024-05-05">2024年5月5日公開</time>
-              </p>
-              <p>
-                計画から引き渡しまで浴室リフォームで確認したいポイントをチェックリスト形式でまとめました。
-              </p>
+            <a href="/articles/reform_toilet_1.html" class="article-card">
+              <h2>【リフォームトイレ】快適で家計に優しい！失敗しない選び方と費用ガイド</h2>
+              <img src="images_reform_toilet_1/タイトル（H1）_1.png" alt="【リフォームトイレ】快適で家計に優しい！失敗しない選び方と費用ガイド" class="article-thumb" loading="lazy" onerror="this.onerror=null;this.src='images_reform_toilet_1/images_reform_toilet_1/タイトル（H1）_1.png';" />
+              <p>トイレリフォームで失敗しないための完全ガイド。最新トイレの機能、メリット・デメリット、費用相場、信頼できる業者の選び方まで詳しく解説します。</p>
             </a>
           </li>
           <li>
-            <a href="/articles/energy-saving-remodel-ideas.html">
-              <h2>省エネリフォームで光熱費を抑えるコツ</h2>
-              <p class="article-meta">
-                <time datetime="2024-05-02">2024年5月2日公開</time>
-              </p>
-              <p>
-                断熱強化や窓リフォーム、高効率設備の導入など、エネルギーコストを抑えるリフォーム手法を解説します。
-              </p>
+            <a href="/articles/remodel_company_1.html" class="article-card">
+              <h2>【40代向け】後悔しないリフォーム会社の選び方と費用相場</h2>
+              <img src="images_remodel_company_1/タイトル（H1）_1.png" alt="【40代向け】後悔しないリフォーム会社の選び方と費用相場" class="article-thumb" loading="lazy" onerror="this.onerror=null;this.src='images_remodel_company_1/images_remodel_company_1/タイトル（H1）_1.png';" />
+              <p>40代からのリフォームを成功させるための会社選びのポイント、費用相場、注意点を徹底解説。信頼できるパートナーを見つけて、理想の住まいを実現しましょう。</p>
+            </a>
+          </li>
+          <li>
+            <a href="/articles/remodel_mama_1.html" class="article-card">
+              <h2>子育てママのリフォーム成功術！快適で安全な家づくり</h2>
+              <img src="images_remodel_mama_1/タイトル（H1）_1.png" alt="子育てママのリフォーム成功術！快適で安全な家づくり" class="article-thumb" loading="lazy" onerror="this.onerror=null;this.src='images_remodel_mama_1/images_remodel_mama_1/タイトル（H1）_1.png';" />
+              <p>子育て世代の悩みを解決し、家族みんながもっと笑顔で快適に暮らすためのリフォーム成功術を、実例や費用、業者の選び方まで詳しく解説します。</p>
+            </a>
+          </li>
+          <li>
+            <a href="/articles/remodel_price_1.html" class="article-card">
+              <h2>リフォームの値段はいくら？費用相場と後悔しないための全知識</h2>
+              <img src="images_remodel_price_1/タイトル（H1）_1.png" alt="リフォームの値段はいくら？費用相場と後悔しないための全知識" class="article-thumb" loading="lazy" onerror="this.onerror=null;this.src='images_remodel_price_1/images_remodel_price_1/タイトル（H1）_1.png';" />
+              <p>リフォームの費用相場や後悔しないための知識を網羅的に解説。キッチン、お風呂、トイレなど場所別の値段から、費用を抑えるコツまで紹介します。</p>
+            </a>
+          </li>
+          <li>
+            <a href="/articles/remodel_renovation_1.html" class="article-card">
+              <h2>マンションリフォームとリノベーション！理想を叶える選択ガイド</h2>
+              <img src="images_remodel_renovation_1/タイトル（H1）_1.png" alt="マンションリフォームとリノベーション！理想を叶える選択ガイド" class="article-thumb" loading="lazy" onerror="this.onerror=null;this.src='images_remodel_renovation_1/images_remodel_renovation_1/タイトル（H1）_1.png';" />
+              <p>マンションリフォームとリノベーションの違いを徹底解説。それぞれのメリット・デメリット、費用相場、失敗しない計画の立て方まで、理想の住まいを実現するための完全ガイド。</p>
+            </a>
+          </li>
+          <li>
+            <a href="/articles/remodel_renovation_difference_1.html" class="article-card">
+              <h2>中古マンション購入者必見！リフォームとリノベーションの違いと賢い選択術</h2>
+              <img src="images_remodel_renovation_difference_1/タイトル（H1）_1.png" alt="中古マンション購入者必見！リフォームとリノベーションの違いと賢い選択術" class="article-thumb" loading="lazy" onerror="this.onerror=null;this.src='images_remodel_renovation_difference_1/images_remodel_renovation_difference_1/タイトル（H1）_1.png';" />
+              <p>中古マンション購入者向けに、リフォームとリノベーションの違い、費用、メリット・デメリットを徹底解説。後悔しないための賢い選択術を学びましょう。</p>
+            </a>
+          </li>
+          <li>
+            <a href="/articles/remodel_vs_1.html" class="article-card">
+              <h2>リフォームとは？リノベーションとの違いや費用相場を徹底解説</h2>
+              <img src="images_remodel_vs_1/タイトル（H1）_1.png" alt="リフォームとは？リノベーションとの違いや費用相場を徹底解説" class="article-thumb" loading="lazy" onerror="this.onerror=null;this.src='images_remodel_vs_1/images_remodel_vs_1/タイトル（H1）_1.png';" />
+              <p>リフォームの基本的な定義から、リノベーションとの明確な違い、気になる場所別の費用相場、そして後悔しないための業者の選び方まで、知っておきたい情報を網羅的に解説します。</p>
+            </a>
+          </li>
+          <li>
+            <a href="/articles/remodel_wallpaper_1.html" class="article-card">
+              <h2>良いコーヒーを自宅で楽しむ！失敗しない豆選びから美味しい淹れ方まで</h2>
+              <img src="images_remodel_wallpaper_1/タイトル（H1）_1.png" alt="良いコーヒーを自宅で楽しむ！失敗しない豆選びから美味しい淹れ方まで" class="article-thumb" loading="lazy" onerror="this.onerror=null;this.src='images_remodel_wallpaper_1/images_remodel_wallpaper_1/タイトル（H1）_1.png';" />
+              <p>自宅で美味しいコーヒーを淹れるための完全ガイド。失敗しないコーヒー豆の選び方から、ハンドドリップのコツ、おすすめの器具まで詳しく解説します。</p>
+            </a>
+          </li>
+          <li>
+            <a href="/articles/remodeler_1.html" class="article-card">
+              <h2>リフォーム業者選びで失敗しない！後悔しないための全知識</h2>
+              <img src="images_remodeler_1/タイトル（H1）_1.png" alt="リフォーム業者選びで失敗しない！後悔しないための全知識" class="article-thumb" loading="lazy" onerror="this.onerror=null;this.src='images_remodeler_1/images_remodeler_1/タイトル（H1）_1.png';" />
+              <p>リフォームで後悔しないための業者選びの全知識を解説。基礎知識から信頼できる業者の見極め方、悪徳業者から身を守る注意点まで網羅します。</p>
+            </a>
+          </li>
+          <li>
+            <a href="/articles/renovation_condo_1.html" class="article-card">
+              <h2>マンションリフォームで理想の住まいを！費用相場から注意点まで徹底解説</h2>
+              <img src="images_renovation_condo_1/タイトル（H1）_1.png" alt="マンションリフォームで理想の住まいを！費用相場から注意点まで徹底解説" class="article-thumb" loading="lazy" onerror="this.onerror=null;this.src='images_renovation_condo_1/images_renovation_condo_1/タイトル（H1）_1.png';" />
+              <p>マンションリフォームの費用相場、できること、メリット・デメリット、業者選びのコツまで、理想の住まいを実現するための情報を徹底解説します。</p>
+            </a>
+          </li>
+          <li>
+            <a href="/articles/renovation_construction_1.html" class="article-card">
+              <h2>リフォーム工事の全体像を把握！費用・種類・業者選びのポイントを徹底解説</h2>
+              <img src="images_renovation_construction_1/タイトル（H1）_1.png" alt="リフォーム工事の全体像を把握！費用・種類・業者選びのポイントを徹底解説" class="article-thumb" loading="lazy" onerror="this.onerror=null;this.src='images_renovation_construction_1/images_renovation_construction_1/タイトル（H1）_1.png';" />
+              <p>リフォームを成功させるための全体像を徹底解説。目的の明確化から費用相場、種類、失敗しない業者選びのポイントまで、初心者にも分かりやすくガイドします。</p>
+            </a>
+          </li>
+          <li>
+            <a href="/articles/renovation_door_frame_1.html" class="article-card">
+              <h2>リフォーム框で玄関DIY！選び方から取り付け手順まで徹底解説</h2>
+              <img src="images_renovation_door_frame_1/タイトル（H1）_1.png" alt="リフォーム框で玄関DIY！選び方から取り付け手順まで徹底解説" class="article-thumb" loading="lazy" onerror="this.onerror=null;this.src='images_renovation_door_frame_1/images_renovation_door_frame_1/タイトル（H1）_1.png';" />
+              <p>リフォーム框を使った玄関DIYの完全ガイド。初心者でも安心の選び方、具体的な取り付け手順、メリット・デメリットまで、成功に必要な情報を徹底解説します。</p>
+            </a>
+          </li>
+          <li>
+            <a href="/articles/renovation_estimate_1.html" class="article-card">
+              <h2>【50代女性向け】リフォーム見積もりで失敗しない！賢い依頼と確認のコツ</h2>
+              <img src="images_renovation_estimate_1/タイトル（H1）_1.png" alt="【50代女性向け】リフォーム見積もりで失敗しない！賢い依頼と確認のコツ" class="article-thumb" loading="lazy" onerror="this.onerror=null;this.src='images_renovation_estimate_1/images_renovation_estimate_1/タイトル（H1）_1.png';" />
+              <p>50代女性がリフォーム見積もりで失敗しないための賢い依頼方法と確認のコツを徹底解説。基本からチェックポイントまで、安心して理想のリフォームを実現するための知識をご紹介します。</p>
+            </a>
+          </li>
+          <li>
+            <a href="/articles/renovation_estimate_app_1.html" class="article-card">
+              <h2>リフォームの見積もりアプリで費用を把握！失敗しない選び方と活用術</h2>
+              <img src="images_renovation_estimate_app_1/タイトル（H1）_1.png" alt="リフォームの見積もりアプリで費用を把握！失敗しない選び方と活用術" class="article-thumb" loading="lazy" onerror="this.onerror=null;this.src='images_renovation_estimate_app_1/images_renovation_estimate_app_1/タイトル（H1）_1.png';" />
+              <p>リフォームを考え始めた方の「費用はいくら？」という不安を解消する「リフォーム見積もりアプリ」。そのメリット・デメリットから、失敗しない選び方、計画を成功に導く活用術までを徹底解説します。</p>
+            </a>
+          </li>
+          <li>
+            <a href="/articles/renovation_estimate_discount_negotiation_1.html" class="article-card">
+              <h2>リフォーム見積もりの値引き交渉術！失敗しないコツと費用を抑える方法</h2>
+              <img src="images_renovation_estimate_discount_negotiation_1/タイトル（H1）_1.png" alt="リフォーム見積もりの値引き交渉術！失敗しないコツと費用を抑える方法" class="article-thumb" loading="lazy" onerror="this.onerror=null;this.src='images_renovation_estimate_discount_negotiation_1/images_renovation_estimate_discount_negotiation_1/タイトル（H1）_1.png';" />
+              <p>リフォームの見積もりで損しないための値引き交渉術を徹底解説。失敗しないコツや費用を抑える具体的な方法、交渉の相場からメリット・デメリットまで網羅します。</p>
+            </a>
+          </li>
+          <li>
+            <a href="/articles/renovation_industrial_news_1.html" class="article-card">
+              <h2>「本当の自分」と出会う旅へ：心を整え、軽やかに生きるためのヒント</h2>
+              <img src="images_renovation_industrial_news_1/タイトル（H1）_1.png" alt="「本当の自分」と出会う旅へ：心を整え、軽やかに生きるためのヒント" class="article-thumb" loading="lazy" onerror="this.onerror=null;this.src='images_renovation_industrial_news_1/images_renovation_industrial_news_1/タイトル（H1）_1.png';" />
+              <p>日々の疲れを感じているあなたへ。自分を知り、心の余白を作り、人間関係を整えることで、軽やかに生きるための具体的なヒントをご紹介します。</p>
+            </a>
+          </li>
+          <li>
+            <a href="/articles/renovation_industry_fair_1.html" class="article-card">
+              <h2>リフォーム産業フェア活用術！経営課題解決と成長戦略のヒント</h2>
+              <img src="images_renovation_industry_fair_1/タイトル（H1）_1.png" alt="リフォーム産業フェア活用術！経営課題解決と成長戦略のヒント" class="article-thumb" loading="lazy" onerror="this.onerror=null;this.src='images_renovation_industry_fair_1/images_renovation_industry_fair_1/タイトル（H1）_1.png';" />
+              <p>リフォーム産業フェアを戦略的に活用し、経営課題解決と未来の成長戦略に繋げるための具体的な方法を解説します。最新トレンド、DX化、新規事業のヒントが満載です。</p>
+            </a>
+          </li>
+          <li>
+            <a href="/articles/renovation_outlet_1.html" class="article-card">
+              <h2>リフォームアウトレットで賢く費用を抑える！失敗しない選び方と注意点</h2>
+              <img src="images_renovation_outlet_1/タイトル（H1）_1.png" alt="リフォームアウトレットで賢く費用を抑える！失敗しない選び方と注意点" class="article-thumb" loading="lazy" onerror="this.onerror=null;this.src='images_renovation_outlet_1/images_renovation_outlet_1/タイトル（H1）_1.png';" />
+              <p>高品質な住宅設備や建材を驚くほど手頃な価格で手に入れる「リフォームアウトレット」の活用法を徹底解説。失敗しない選び方からメリット・デメリット、注意点まで、賢いリフォーム計画の全てがわかります。</p>
+            </a>
+          </li>
+          <li>
+            <a href="/articles/renovation_sales_1.html" class="article-card">
+              <h2>リフォーム営業で成果を出す！新築経験を活かす提案術と成功の秘訣</h2>
+              <img src="images_renovation_sales_1/タイトル（H1）_1.png" alt="リフォーム営業で成果を出す！新築経験を活かす提案術と成功の秘訣" class="article-thumb" loading="lazy" onerror="this.onerror=null;this.src='images_renovation_sales_1/images_renovation_sales_1/タイトル（H1）_1.png';" />
+              <p>新築営業の経験を活かしてリフォーム営業で成功するための提案術、新築営業との違い、成功の秘訣を徹底解説します。</p>
+            </a>
+          </li>
+          <li>
+            <a href="/articles/renovation_sliding_door_1.html" class="article-card">
+              <h2>タイトル未定の人生（nan）を、自分色に彩るために</h2>
+              <img src="images_renovation_sliding_door_1/タイトル（H1）_1.png" alt="タイトル未定の人生（nan）を、自分色に彩るために" class="article-thumb" loading="lazy" onerror="this.onerror=null;this.src='images_renovation_sliding_door_1/images_renovation_sliding_door_1/タイトル（H1）_1.png';" />
+              <p>繰り返される日常の中で「このままでいいのかな？」と感じていませんか？この記事は、タイトル未定の人生を自分らしく彩るための自己理解、心地よい習慣、人間関係のヒントを提案します。</p>
+            </a>
+          </li>
+          <li>
+            <a href="/articles/renovation_subsidy_1.html" class="article-card">
+              <h2>2024年最新！リフォーム補助金を活用し費用を抑える賢い選び方と申請ガイド</h2>
+              <img src="images_renovation_subsidy_1/タイトル（H1）_1.png" alt="2024年最新！リフォーム補助金を活用し費用を抑える賢い選び方と申請ガイド" class="article-thumb" loading="lazy" onerror="this.onerror=null;this.src='images_renovation_subsidy_1/images_renovation_subsidy_1/タイトル（H1）_1.png';" />
+              <p>2024年の最新情報に基づき、リフォーム補助金の賢い選び方と申請方法を徹底解説。費用を抑えて理想の住まいを実現するための完全ガイドです。</p>
+            </a>
+          </li>
+          <li>
+            <a href="/articles/renovation_subsidy_2025_1.html" class="article-card">
+              <h2>【2025年最新】リフォーム補助金を徹底解説！費用を抑えて賢く理想の住まいへ</h2>
+              <img src="images_renovation_subsidy_2025_1/タイトル（H1）_1.png" alt="【2025年最新】リフォーム補助金を徹底解説！費用を抑えて賢く理想の住まいへ" class="article-thumb" loading="lazy" onerror="this.onerror=null;this.src='images_renovation_subsidy_2025_1/images_renovation_subsidy_2025_1/タイトル（H1）_1.png';" />
+              <p>2025年に活用が期待されるリフォーム補助金について詳しく解説。国や自治体の制度、対象工事、申請の流れ、注意点まで、費用を抑えて理想の住まいを実現するための情報を網羅します。</p>
             </a>
           </li>
         </ul>
@@ -212,20 +342,20 @@
           <h2 id="sidebar-title">人気の読み物</h2>
           <ul>
             <li>
-              <a href="/articles/renovation-estimate-complete-guide.html">【40代主婦向け】リフォーム見積もり完全ガイド</a>
-              <p>費用相場と見積書のチェックポイントをまとめた決定版ガイドです。</p>
+              <a href="/articles/kitchen_renovation_1.html">後悔しないキッチンリフォーム！費用相場と成功のポイントを徹底解説</a>
+              <p>理想のキッチンを叶える費用相場と成功のコツを丁寧にまとめました。</p>
             </li>
             <li>
-              <a href="/articles/renovation-planning-guide.html">リフォーム計画の基本ガイド</a>
-              <p>計画の進め方や予算づくりのコツを最初に押さえましょう。</p>
+              <a href="/articles/remodel_company_1.html">【40代向け】後悔しないリフォーム会社の選び方と費用相場</a>
+              <p>信頼できる会社の見極めポイントと費用の目安を押さえられます。</p>
             </li>
             <li>
-              <a href="/articles/energy-saving-remodel-ideas.html">省エネリフォームで光熱費を抑えるコツ</a>
-              <p>断熱・窓・設備の改善で快適さと節約を両立させるヒントです。</p>
+              <a href="/articles/renovation_estimate_1.html">【50代女性向け】リフォーム見積もりで失敗しない！賢い依頼と確認のコツ</a>
+              <p>見積もりの読み方から交渉のコツまで、安心して進める知識を網羅。</p>
             </li>
             <li>
-              <a href="/articles/kitchen-storage-ideas.html">キッチン収納を見直す３つのポイント</a>
-              <p>収納の工夫で毎日の家事効率を高める実践的なアイデアを掲載。</p>
+              <a href="/articles/renovation_outlet_1.html">リフォームアウトレットで賢く費用を抑える！失敗しない選び方と注意点</a>
+              <p>お得に設備を選ぶためのチェックポイントと注意点を解説しています。</p>
             </li>
           </ul>
           <a class="sidebar-more" href="/">トップページに戻る ↗</a>
