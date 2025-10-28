@@ -7,38 +7,31 @@ export type ArticleMeta = {
 
 export const articleMetas: ArticleMeta[] = [
   {
-    slug: "renovation-estimate-complete-guide.html",
-    title: "【40代主婦向け】リフォーム見積もり完全ガイド",
+    slug: "kitchen_renovation_1.html",
+    title: "後悔しないキッチンリフォーム！費用相場と成功のポイントを徹底解説",
     summary:
-      "リフォーム見積もりの基礎から費用相場、業者選び、資金計画までを丁寧に解説した決定版ガイドです。",
+      "キッチンリフォームを検討中のあなたへ。後悔しない理想のキッチンを実現するための費用相場、成功のポイント、キッチンの選び方、リフォーム会社の選び方まで徹底解説します。",
     publishedAt: "2024-05-20",
   },
   {
-    slug: "renovation-planning-guide.html",
-    title: "リフォーム計画の基本ガイド",
+    slug: "remodel_company_1.html",
+    title: "【40代向け】後悔しないリフォーム会社の選び方と費用相場",
     summary:
-      "予算やスケジュールの立て方など、工事前に押さえておきたい基礎を解説します。",
+      "40代からのリフォームを成功させるための会社選びのポイント、費用相場、注意点を徹底解説。信頼できるパートナーを見つけて、理想の住まいを実現しましょう。",
     publishedAt: "2024-05-12",
   },
   {
-    slug: "kitchen-storage-ideas.html",
-    title: "キッチン収納を見直す３つのポイント",
+    slug: "renovation_estimate_1.html",
+    title: "【50代女性向け】リフォーム見積もりで失敗しない！賢い依頼と確認のコツ",
     summary:
-      "毎日の料理をスムーズにするための収納改善のコツを紹介します。",
+      "50代女性がリフォーム見積もりで失敗しないための賢い依頼方法と確認のコツを徹底解説。基本からチェックポイントまで、安心して理想のリフォームを実現するための知識をご紹介します。",
     publishedAt: "2024-05-08",
   },
   {
-    slug: "bathroom-renovation-checklist.html",
-    title: "バスルーム改修チェックリスト",
+    slug: "renovation_outlet_1.html",
+    title: "リフォームアウトレットで賢く費用を抑える！失敗しない選び方と注意点",
     summary:
-      "浴室リフォームで確認したい設備や工程をチェックリスト形式でまとめました。",
-    publishedAt: "2024-05-05",
-  },
-  {
-    slug: "energy-saving-remodel-ideas.html",
-    title: "省エネリフォームで光熱費を抑えるコツ",
-    summary:
-      "断熱や高効率設備で快適性と省エネを両立させるポイントを紹介します。",
+      "高品質な住宅設備や建材を驚くほど手頃な価格で手に入れる「リフォームアウトレット」の活用法を徹底解説。失敗しない選び方からメリット・デメリット、注意点まで、賢いリフォーム計画の全てがわかります。",
     publishedAt: "2024-05-02",
   },
 ];

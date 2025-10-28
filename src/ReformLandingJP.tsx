@@ -230,7 +230,7 @@ export default function ReformLandingJP() {
           <div className="md:pl-6">
             <div className="aspect-video overflow-hidden rounded-2xl shadow-lg border">
               <img
-                src="/articles/images_kitchen_renovation_1/images_kitchen_renovation_1/導入_1.png"
+                src="/articles/images_kitchen_renovation_1/導入_1.png"
                 alt="キッチンリノベーション施工事例"
                 className="h-full w-full object-cover"
                 loading="lazy"
