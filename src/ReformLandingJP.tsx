@@ -88,9 +88,9 @@ export default function ReformLandingJP() {
               </svg>
             </div>
             <div>
-              <p className="text-sm font-semibold leading-none">直営リフォーム工房</p>
+              <p className="text-sm font-semibold leading-none">ともあき建築工房</p>
               <p className="text-[11px] text-gray-500 leading-tight">
-                中間手数料を極力カットし“適正価格”へ
+                神戸・三田で大手費用の50%を目指す直営リフォーム
               </p>
             </div>
           </a>
@@ -186,9 +186,14 @@ export default function ReformLandingJP() {
               実質価格 最大50%ダウン(条件による)
             </p>
             <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
-              大手見積の<strong className="text-indigo-600">半額クラス</strong>でも、
-              <br />仕上がりは<strong className="text-emerald-600">きっちり</strong>。
+              神戸・三田のリフォームは
+              <br />
+              <strong className="text-indigo-600">「ともあき建築工房」</strong>
             </h1>
+            <p className="mt-3 text-base sm:text-lg text-gray-700">
+              神戸・三田でリフォームを考えたい人にピッタリです。地域に根ざした職人チームが直接対応し、
+              住まいのお悩みを丁寧にヒアリングします。
+            </p>
             <p className="mt-4 text-base sm:text-lg text-gray-700">
               物価高で「リフォームは無理かも…」という声が増えています。大手は多くの人や会社が関わるため
               <span className="font-semibold">
@@ -197,7 +202,7 @@ export default function ReformLandingJP() {
               で、結果として割高に。
               私たちは<strong>個人事業</strong>として中間コストを極力下げ、
               <strong>原価率50%以上</strong>を目安にすることで、
-              <strong>実際の価格を約50%まで下げる</strong>ことを目指します。
+              <strong className="text-emerald-600">費用は大手企業の50%を目指します。</strong>
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
               <a
