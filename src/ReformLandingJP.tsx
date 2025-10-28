@@ -59,13 +59,6 @@ export default function ReformLandingJP() {
     href: `/articles/${article.slug}`,
   }));
 
-  const gradientPresets = [
-    "from-indigo-500 via-blue-500 to-sky-400",
-    "from-emerald-500 via-teal-500 to-cyan-400",
-    "from-amber-500 via-orange-500 to-rose-400",
-    "from-purple-500 via-violet-500 to-indigo-400",
-  ];
-
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-50 via-white to-white text-gray-900">
       <header className="sticky top-0 z-40 bg-white/80 backdrop-blur border-b">
@@ -607,7 +600,7 @@ export default function ReformLandingJP() {
             subtitle="最新の記事から、費用や計画の考え方まで幅広くご紹介しています。"
           />
           <div className="grid gap-6 md:grid-cols-2">
-            {articleLinks.map((article, index) => (
+            {articleLinks.map((article) => (
               <a
                 key={article.href}
                 href={article.href}
@@ -615,11 +608,23 @@ export default function ReformLandingJP() {
                 rel="noreferrer"
                 className="group flex flex-col rounded-2xl border bg-white shadow-sm hover:shadow-md transition overflow-hidden"
               >
-                <div
-                  className={`aspect-[16/9] bg-gradient-to-br ${gradientPresets[index % gradientPresets.length]} opacity-90`}
-                >
-                  <div className="flex h-full w-full items-center justify-center text-white text-sm font-semibold tracking-wide">
-                    アイキャッチ画像サンプル
+                <div className="relative aspect-[16/9] bg-gray-100 overflow-hidden">
+                  <img
+                    src={article.coverImage}
+                    alt={article.coverImageAlt}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    onError={(event) => {
+                      event.currentTarget.style.display = "none";
+                      const fallback = event.currentTarget.nextElementSibling;
+                      if (fallback) {
+                        fallback.classList.remove("hidden");
+                        fallback.classList.add("flex");
+                      }
+                    }}
+                  />
+                  <div className="absolute inset-0 hidden items-center justify-center bg-gradient-to-br from-indigo-500/20 via-white/10 to-emerald-500/20 text-sm font-semibold text-indigo-900 backdrop-blur-sm">
+                    画像を読み込めませんでした
                   </div>
                 </div>
                 <div className="p-6 flex-1 flex flex-col">
