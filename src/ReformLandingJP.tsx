@@ -223,29 +223,15 @@ export default function ReformLandingJP() {
             </ul>
           </div>
           <div className="md:pl-6">
-            <div className="aspect-video rounded-2xl bg-white shadow-lg border p-6 flex items-center justify-center">
-              <svg
-                viewBox="0 0 480 270"
-                className="w-full h-full"
-                fill="none"
-                stroke="#6366f1"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M60 150 L240 40 L420 150" />
-                <rect x="100" y="150" width="280" height="90" rx="8" stroke="#0ea5e9" />
-                <rect x="140" y="180" width="60" height="60" rx="6" />
-                <rect x="280" y="170" width="60" height="70" rx="6" />
-                <path d="M340 70a22 22 0 10-18 18l30 30 18-18-30-30z" stroke="#22c55e" />
-                <path d="M352 104l24 24" stroke="#22c55e" />
-                <rect x="70" y="80" width="70" height="24" rx="6" stroke="#f59e0b" />
-                <path d="M105 104v28h18" stroke="#f59e0b" />
-              </svg>
+            <div className="aspect-video overflow-hidden rounded-2xl shadow-lg border">
+              <img
+                src="/articles/images_kitchen_renovation_1/images_kitchen_renovation_1/導入_1.png"
+                alt="キッチンリノベーション施工事例"
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
             </div>
-            <p className="text-[11px] text-gray-500 mt-2">
-              イラストは装飾です。実施工写真に置き換え可能です。
-            </p>
+            <p className="text-[11px] text-gray-500 mt-2">(写真はイメージです。)</p>
           </div>
         </div>
       </section>
