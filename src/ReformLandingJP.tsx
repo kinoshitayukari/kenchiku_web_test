@@ -230,7 +230,7 @@ export default function ReformLandingJP() {
           <div className="md:pl-6">
             <div className="aspect-video overflow-hidden rounded-2xl shadow-lg border">
               <img
-                src="/articles/images_kitchen_renovation_1/images_kitchen_renovation_1/導入_1.png"
+                src="/articles/images_kitchen_renovation_1/導入_1.png"
                 alt="キッチンリノベーション施工事例"
                 className="h-full w-full object-cover"
                 loading="lazy"
@@ -647,11 +647,14 @@ export default function ReformLandingJP() {
                 className="group flex flex-col rounded-2xl border bg-white shadow-sm hover:shadow-md transition overflow-hidden"
               >
                 <div
-                  className={`aspect-[16/9] bg-gradient-to-br ${gradientPresets[index % gradientPresets.length]} opacity-90`}
+                  className={`relative aspect-[16/9] overflow-hidden bg-gradient-to-br ${gradientPresets[index % gradientPresets.length]}`}
                 >
-                  <div className="flex h-full w-full items-center justify-center text-white text-sm font-semibold tracking-wide">
-                    アイキャッチ画像サンプル
-                  </div>
+                  <img
+                    src={`/articles/${article.eyecatch}`}
+                    alt={`${article.title}のアイキャッチ画像`}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
                 </div>
                 <div className="p-6 flex-1 flex flex-col">
                   <p className="text-xs text-gray-500">
